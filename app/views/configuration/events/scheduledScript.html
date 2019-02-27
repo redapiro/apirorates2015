@@ -1,0 +1,8 @@
+<div ng-controller="scheduledScriptController">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <div id="content">
+      <manage-scriptable mode="mode" scriptable-entity="scriptableEntity" instance-form="'scheduled-script-instance-form'"  grid-title="'Scheduled Script'"></manage-scriptable>
+    </div>
+  </div>
+</div>

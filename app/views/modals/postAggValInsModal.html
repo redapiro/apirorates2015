@@ -1,0 +1,61 @@
+<div class="modal full-screen">
+  <div class="modal-header clearfix">
+    <h4 class="pull-left">Post Aggregation Rate Validation Instance</h4>
+  </div>
+  <div class="modal-body">
+    <form class="form-vertical" novalidate name="postAggValInsForm">
+      <div class="control-group" ng-class="{'error': postAggValInsForm.name.$dirty && postAggValInsForm.name.$invalid}">
+        <label for="name">Name:</label>
+        <div class="controls">
+	        <input id="name" type="text" name="name" ng-model="modal.postAggValIns.name" style="width:500px" required/>
+	        <span ng-show="postAggValInsForm.name.$dirty && postAggValInsForm.name.$invalid">
+	          	<i class="icon-remove-sign"></i>
+	        	<span class="help-inline">This is required.</span>
+	        </span>
+        </div>
+      </div>
+      
+	  <div class="control-group">
+	      <label for="description">Description:</label>
+	      <div class="controls">
+		      <input type="text" name="description" ng-model="modal.postAggValIns.description" style="width:500px"/>
+	       </div>
+      </div>
+      
+      <div class="control-group" width="220px" ng-class="{'error': postAggValInsForm.def.$dirty && postAggValInsForm.def.$invalid}">
+	      <label>Post Aggregation Rate Validation Definition:</label>
+	      <div class="controls">
+		      <select name="def"
+		      		  ng-options="def.id as def.name for def in definitions"
+		              data-placeholder="Select"
+		              data-chosen
+		              ng-model="modal.postAggValIns.definitionId"
+		              required>
+		        <option></option>
+		      </select>  
+		      <!-- <div ui-ace="{mode:'javascript'}" readonly="true" ng-model="modal.jsonSchema" style="height:240px"></div> -->
+		      <span ng-show="postAggValInsForm.def.$dirty && postAggValInsForm.def.$invalid">
+			      <i class="icon-remove-sign"></i>
+			      <span class="help-inline">This is required.</span>
+		      </span>
+	      </div>
+      </div>
+      
+	  <div class="control-group" ng-class="{'error': postAggValInsForm.jsonConfig.$dirty && postAggValInsForm.jsonInvalid}">
+	      <label for="jsonConfig">jsonConfig:</label>
+	      <div class="controls">
+		      <div ui-ace="{mode:'javascript'}" name="jsonConfig"  ng-model="modal.postAggValIns.jsonConfig" style="height:240px" required></div>
+		      <span ng-show="postAggValInsForm.jsonConfig.$dirty && postAggValInsForm.jsonInvalid">
+		         	<i class="icon-remove-sign"></i>
+		      	 	<span class="help-inline">This is required.</span>
+		       </span>
+	       </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="modal.save()" class="btn btn-success" ng-disabled="postAggValInsForm.$invalid">Submit</button>
+    <button ng-click="modal.cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+</div>

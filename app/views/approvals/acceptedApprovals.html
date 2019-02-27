@@ -1,0 +1,35 @@
+<div ng-controller="acceptedApprovalsController">
+  <span navbar></span>
+  <div id="main" role="main">
+    <!-- RIBBON -->
+    <div id="ribbon" data-ng-include="'includes/ribbon.html'" data-ribbon=""></div>
+    <!-- END RIBBON -->
+    <div id="content">
+      <div class="row">
+        <section id="widget-grid">
+            <!--PAGE CONTENT BEGINS-->
+            <div class="row-fluid">
+              <div class="span12">
+                <div simple-grid
+                  columns="columns"
+                  datasource-url = "datasourceUrl"
+                  action-columns = "extraColumnsToAdd"
+                  refresh-trigger = "refreshView">
+                </div>
+              </div>
+            </div>
+          </section>
+          </div>
+          <!--<div class="space-6"></div>-->
+          <div class="hr hr32 hr-dotted"></div>
+          <!--PAGE CONTENT ENDS-->
+        </div>
+        <!--/.span-->
+      </div>
+      <!--/.row-fluid-->
+    </div>
+    <!--/.page-content-->
+  </div>
+</div>
+
+

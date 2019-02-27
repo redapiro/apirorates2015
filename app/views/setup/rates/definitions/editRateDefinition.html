@@ -1,0 +1,116 @@
+<div ng-controller="editRateDefinitionController" class="animated fadeIn" ng-show="rateDefinition">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div>
+            <div class="jarviswidget jarviswidget-sortable animate-show" data-widget-colorbutton="false"
+                 data-widget-editbutton="false" role="widget" style="">
+              <header role="heading">
+                <div class="jarviswidget-ctrls" role="menu">
+                </div>
+                <span class="widget-icon">  </span>
+
+                <h2>Rate Definition</h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+              </header>
+
+              <div role="content">
+                <div class="jarviswidget-editbox">
+                </div>
+                <div class="widget-body">
+
+                  <form class="form-horizontal" novalidate name="rateDefinitionForm" xt-form>
+                    <fieldset>
+                      <div class="form-group"
+                           data-ng-class="{'error': rateDefinitionForm.market.$dirty && scriptForm.market.$invalid}">
+                        <label class="col-md-2 control-label">Market</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="market" data-ng-model="rateDefinition.market" theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{rateDefinition.market.name}}</ui-select-match>
+                            <ui-select-choices
+                              repeat="market in referenceData.markets | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="market.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group"
+                           data-ng-class="{'error': rateDefinition.symbol.$invalid}">
+                        <label class="col-md-2 control-label">Symbol</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="symbol" ng-model="rateDefinition.symbol" theme="" reset-search-input="true"
+                                     data-ng-required="true" data-ng-disabled="!rateDefinition.market">
+                            <ui-select-match placeholder="Choose symbol">{{rateDefinition.symbol}}</ui-select-match>
+                            <ui-select-choices refresh="getSymbols($select.search)" refresh-delay="0"
+                                               repeat="symbol in symbols">
+                              <div data-ng-bind-html="symbol | propsFilter: {name: $select.search}"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group"
+                           data-ng-class="{'error': rateDefinitionForm.market.$dirty && scriptForm.market.$invalid}">
+                        <label class="col-md-2 control-label">Schema Definition</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="market" data-ng-model="rateDefinition.schemaDefinition" theme="selectize" ng-disabled="editMode"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{rateDefinition.schemaDefinition.name}}</ui-select-match>
+                            <ui-select-choices
+                              repeat="schema in referenceData.rateSchemaDefs | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="schema.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <h5>Dictionary items</h5>
+
+                      <div schema-option-selector-grid
+                           paginated="false"
+                           refresh = "refresh"
+                           pixel-height="300"
+                           items-for-edit="itemsForEdit"
+                           action-columns="innerExtraColumnsToAdd"
+                           refresh-trigger="refreshView"
+                           modified-notifier="modified"
+                           toolbar-action="innerGridAction">
+                      </div>
+
+
+                      <div errors-display class="alert alert-danger animated fadeIn"
+                           error-messages="innerErrorMessages"></div>
+                      <div class="form-actions center">
+                        <button ng-click="save()" ng-disabled="!rateDefinitionForm.$valid || !itemsValid"
+                                class="btn btn-small btn-primary">
+                          <i class="fa fa-save"></i>
+                          Save
+                          <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                        </button>
+                        <button ng-click="cancel()" class="btn btn-small btn-danger">
+                          Cancel
+                          <i class="icon-ban-circle icon-on-right bigger-110"></i>
+                        </button>
+
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--FORM ENDS-->
+          </div>
+        </div>
+        <!--/.page-content-->
+      </section>
+    </article>
+  </div>
+</div>

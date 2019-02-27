@@ -1,0 +1,22 @@
+<div class="modal modal-height-50">
+  <div class="modal-header clearfix">
+    <h4 class="pull-left">{{modal.definition.name}}</h4>
+  </div>
+  <div class="modal-body modal-body-no-overflow">
+    <form class="form-vertical" novalidate>
+      <div class="control-group">
+        <div class="controls">
+          {{modal.definition.className}}
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <div ui-ace="{mode:'javascript'}" readonly="true" ng-model="modal.definition.jsonSchema" style="height:240px;"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="modal.cancel()" class="btn btn-danger">Close</button>
+  </div>
+</div>

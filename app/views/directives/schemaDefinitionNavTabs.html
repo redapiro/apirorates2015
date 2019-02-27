@@ -1,0 +1,17 @@
+<ul id="myTab1" class="nav nav-tabs bordered " >
+  <li  ng-class="{'active': isDataDictionary()}">
+    <a data-toggle="tab" ng-click="goToDataDictionary()"> <span class="hidden-mobile hidden-tablet">Data dictionary</span></a>
+  </li>
+  <li ng-class="{'active': isPreSourceFieldCleanser()}" ng-show="enableOtherTabs()">
+    <a data-toggle="tab" ng-click="goToPreSourceFieldCleanser()"> <span class="hidden-mobile hidden-tablet">Pre Source Field Cleansers</span></a>
+  </li>
+  <li ng-class="{'active': isPostSourceProcessor()}" ng-show="enableOtherTabs()">
+    <a data-toggle="tab" ng-click="goToPostSourceProcessor()"> <span class="hidden-mobile hidden-tablet">Post Source Processors</span></a>
+  </li>
+  <li ng-class="{'active': isRawFieldValidation()}" ng-show="enableOtherTabs()">
+    <a data-toggle="tab" ng-click="goToRawFieldValidation()"> <span class="hidden-mobile hidden-tablet">Raw Field Validators</span></a>
+  </li>
+  <li ng-class="{'active': isPostAggregationFieldValidation()}" ng-show="enableOtherTabs()">
+    <a data-toggle="tab" ng-click="goToPostAggregationFieldValidation()"> <span class="hidden-mobile hidden-tablet">Post Aggregation Field Validation</span></a>
+  </li>
+</ul>

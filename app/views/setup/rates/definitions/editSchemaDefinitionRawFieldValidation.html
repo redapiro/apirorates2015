@@ -1,0 +1,61 @@
+<div ng-controller="editSchemaDefinitionRawFieldValidationController" >
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div>
+            <div class="jarviswidget jarviswidget-sortable animate-show" data-widget-colorbutton="false"
+                 data-widget-editbutton="false" role="widget" style="">
+              <div schema-definitions-nav-tabs></div>
+
+              <div role="content" class="animate-show"  ng-show="ready">
+                <div class="jarviswidget-editbox">
+                </div>
+                <div class="widget-body">
+
+                  <form class="form-horizontal" novalidate name="rateSchemaDefForm" xt-form>
+                    <fieldset>
+                      <h5>Selection matrix</h5>
+
+                      <div schema-definition-pre-source-field-cleanser-grid=""
+                           paginated="false"
+                           selection-items="supportedDictionaryItems"
+                           modification-field="{{field}}"
+                           selected-dictionary = "selectedDictionary"
+                           pixel-height="400"
+                           dictionary-items="schemaDefinition.dictionaryItems"
+                           reference-data="referenceData">
+                      </div>
+                      <div errors-display class="alert alert-danger animated fadeIn"
+                           error-messages="innerErrorMessages"></div>
+
+                      <!-- Errors -->
+                      <div errors-display class="alert alert-danger animated fadeIn"
+                           error-messages="errorMessages"></div>
+                      <div class="form-actions center">
+                        <button ng-click="doSaveOp()"
+                                class="btn btn-small btn-primary">
+                          <i class="fa fa-save"></i>
+                          Save
+                          <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                        </button>
+                        <button ng-click="doCancelOp()" class="btn btn-small btn-danger">
+                          Cancel
+                          <i class="icon-ban-circle icon-on-right bigger-110"></i>
+                        </button>
+
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!--FORM ENDS-->
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>

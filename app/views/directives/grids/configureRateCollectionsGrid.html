@@ -1,0 +1,27 @@
+<div class="widget-box">
+    <div class="widget-header">
+      <!--<span ng-hide="ready">-->
+        <!--<i class="icon-spinner icon-spin icon-large"></i>Loading ...-->
+      <!--</span>-->
+      <!--<span ng-show="noData">-->
+        <!--No data for configuring collections-->
+      <!--</span>-->
+      <div class="widget-toolbar-left">
+          <select name="modal.user.role" id="select"
+                  ng-options="rateCollection as rateCollection.name for rateCollection in rateCollections"
+                  data-placeholder="Collection Name"
+                  data-chosen
+                  ng-model="selectedCollection">
+            <option><option>
+          </select>
+      </div>
+      <div class="widget-toolbar button-in-toolbar">
+        <button class="btn btn-mini btn-success pull-right" ng-click="addNewCollection()" ><i class="icon icon-plus-sign"></i>Add Rate Collection</button>
+      </div>
+    </div>
+</div>
+<div class="widget-body">
+    <div class="widget-main no-padding">
+        <div id="grid" class="grid"></div>
+    </div>
+</div>

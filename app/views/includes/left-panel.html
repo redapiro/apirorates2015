@@ -1,0 +1,97 @@
+<aside id="left-panel">
+<!-- User info -->
+			<div class="login-info">
+				<span >
+					
+					<a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+
+						<span class="padding-5">{{$root.loggedInUser.firstName}} {{$root.loggedInUser.lastName}}</span>
+
+					</a> 
+					
+				</span>
+			</div>
+
+			<navigation ng-show="isRuntime()">
+				<nav:item data-view="/runtime/dashboard" data-icon="fa fa-lg fa-fw fa-home" title="Dashboard"></nav:item>
+        <nav:group data-icon="fa fa-lg fa-fw fa-line-chart" title="Rates" >
+          <nav:item data-view="/runtime/sources/raw" title="Raw" ></nav:item>
+          <nav:item data-view="/runtime/sources/aggregated" title="Aggregated"></nav:item>
+          <nav:item data-view="/runtime/sources/historical" title="Historical"></nav:item>
+          <nav:item data-view="/runtime/sources/crossRate"  title="Risk Factors"></nav:item>
+        </nav:group>
+				<nav:group data-icon="fa fa-lg fa-fw fa-gear" title="System" >
+					<nav:item data-view="/runtime/audit/taskAudit" title="Audit logs" ></nav:item>
+					<nav:item data-view="/runtime/logs/logMessages" title="Log messages" ></nav:item>
+				</nav:group>
+			</navigation>
+
+			<navigation ng-show="isSetup()">
+				<nav:group title="Data Dictionary" >
+					<nav:group title="Dictionaries" >
+						<nav:item data-view="/setup/rates/definitions/dimensions" title="Dimensions" ></nav:item>
+						<nav:item data-view="/setup/rates/definitions/attributes" title="Attributes" ></nav:item>
+						<nav:item data-view="/setup/rates/definitions/properties" title="Properties" ></nav:item>
+					</nav:group>
+					<nav:item data-view="/setup/rates/definitions/schemaDefinitions" title="Schema Definitions"></nav:item>
+					<nav:item data-view="/setup/rates/definitions/rateDefinition" title="Rate Definitions" ></nav:item>
+				</nav:group>
+				<nav:group title="Risk Factors" >
+					<nav:item data-view="/setup/rates/riskFactors/collections" title="Collections" ></nav:item>
+					<nav:item data-view="/setup/rates/riskFactors/distributionFormatter" title="Distributions formatter" ></nav:item>
+					<nav:item data-view="/setup/rates/riskFactors/distributions" title="Distributions" ></nav:item>
+					<nav:item data-view="/setup/rates/riskFactors/distributionProcService" title="Distribution Processor" ></nav:item>
+				</nav:group>
+				<nav:group title="Linear Rates" >
+					<nav:item data-view="/setup/rates/linear/collections" title="Collections" ></nav:item>
+					<nav:item data-view="/setup/rates/linear/distributionFormatter" title="Distributions formatter" ></nav:item>
+					<nav:item data-view="/setup/rates/linear/distributions" title="Distributions" ></nav:item>
+				</nav:group>
+				<nav:item data-view="/setup/dataSink" title="Data Sinks" ></nav:item>
+				<nav:item data-view="/setup/users/user" title="Users"></nav:item>
+				<nav:item data-view="/setup/logManagement" title="Log management"></nav:item>
+				<!--<nav:item data-view="/setup/users/user" data-icon="fa fa-lg fa-fw fa-user" title="Users"></nav:item>-->
+			</navigation>
+
+
+			<navigation ng-show="isConfiguration()">
+				<nav:group title="Raw Rates Setup" >
+					<nav:item data-view="/configuration/rates/raw/preSourceCleanse" 	title="Pre-Source cleanse" ></nav:item>
+					<nav:item data-view="/configuration/rates/raw/postSourceProcess" 	title="Post-Source process" ></nav:item>
+					<nav:item data-view="/configuration/rates/raw/rawValidation" 			title="Raw Field Validation" ></nav:item>
+				</nav:group>
+				<nav:group title="Aggregated Rates Setup" >
+					<nav:item data-view="/configuration/rates/aggregated/fieldAggregationAlgorithm" title="Field Aggregation Algorithms" ></nav:item>
+					<nav:item data-view="/configuration/rates/aggregated/postAggValidation" title="Post Aggregation Validators" ></nav:item>
+				</nav:group>
+				<nav:group title="Core Services" >
+					<nav:item data-view="/configuration/services/services" title="Services" ></nav:item>
+					<nav:item data-view="/configuration/services/rawImportServices" title="Raw Import Services" ></nav:item>
+					<nav:item data-view="/configuration/services/aggregationServices" title="Aggregation Services" ></nav:item>
+					<nav:item data-view="/configuration/services/rateDefinitionImportServices" title="Rate Definition Import Services" ></nav:item>
+					<nav:item data-view="/configuration/services/authenticationServices" title="Authentication Services" ></nav:item>
+					<nav:item data-view="/configuration/services/authorizationServices" title="Authorization Services" ></nav:item>
+					<nav:item data-view="/configuration/services/eventProcessorServices" title="Event Processor Services" ></nav:item>
+					<nav:item data-view="/configuration/services/distributionProcessServices" title="Distribution Process Services" ></nav:item>
+					<nav:item data-view="/configuration/services/crossRateDistributionProcessServices" title="Cross Rate Distribution Process Services" ></nav:item>
+					<nav:item data-view="/configuration/services/lifeCycleServices" title="Life Cycle Services" ></nav:item>
+					<nav:item data-view="/configuration/services/corporateActionsProcessServices" title="Corporate Actions Process Services" ></nav:item>
+				</nav:group>
+				<nav:group title="Feeds" >
+					<nav:item data-view="/configuration/feeds/dataFeeds" title="Data Feeds" ></nav:item>
+					<nav:item data-view="/configuration/feeds/rateDefImport" title="Rate Definitions Import" ></nav:item>
+				</nav:group>
+				<nav:group title="Events" >
+					<nav:item data-view="/configuration/events/eventListener" title="Event listeners" ></nav:item>
+					<nav:item data-view="/configuration/events/scheduledScript" title="Scheduled scripts" ></nav:item>
+				</nav:group>
+
+				<nav:group title="Lifecycle" >
+					<nav:item data-view="/configuration/lifecycle/postCloseProcess" title="Post-close process" ></nav:item>
+				</nav:group>
+				<nav:group title="System" >
+					<nav:item data-view="/configuration/system/calendar" title="Business Calendar" ></nav:item>
+				</nav:group>
+			</navigation>
+			<span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>

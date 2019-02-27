@@ -1,0 +1,42 @@
+<div class="modal">
+  <div id="blockerScreen" ng-show="!modal.existingRate && !modal.submittedRate">
+    <div class="loading-image" alt="spinner"></div>
+  </div>
+  <div ng-show="modal.existingRate && modal.submittedRate">
+    <div class="modal-header clearfix">
+      <h4 class="smaller lighter blue">Approval Confirmation - {{modal.entityName}}</h4>
+    </div>
+    <div class="modal-body-no-max-height">
+      <table id="sample-table-1" class="table table-bordered table-hover">
+        <thead>
+        <tr class="lighter">
+          <th class="left ">Field</th>
+          <th class="left ">Current</th>
+          <th class="left ">Pending</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr ng-repeat="res in modal.allValues">
+          <td class="left">{{res.name}}</td>
+          <td class="left">{{res.oldValue}}</td>
+          <td class="left" ng-class="{'table-cell-error': !res.match}">{{res.submittedValue}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <div ng-show="modal.displayCloseButton()">
+        <button ng-click="modal.approve()" class="btn btn-small btn-info">Approve</button>
+        <button class="btn btn-small btn-danger" ng-click="modal.reject()">Reject</button>
+        <button class="btn btn-small btn-purple" ng-click="modal.cancel()">Cancel</button>
+      </div>
+      <div ng-show="!modal.displayCloseButton()">
+        <button class="btn btn-small btn-info" ng-click="modal.cancel()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

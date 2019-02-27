@@ -1,0 +1,160 @@
+<div class="modal full-screen">
+  <div class="modal-header clearfix">
+    <h4 class="pull-left">Rate Schema Definition</h4>
+  </div>
+  <div class="modal-body rate-schema-defs-modal">
+	      <div class="page-content">
+	        <div class="row-fluid">
+	          <div class="span10">
+	            <!-- tabs -->
+	            <div class="position-relative nav-tabs-header full-width">
+	              <ul class="nav nav-tabs">
+	                <li ng-class="{active: currentTab == 'dataDictionary'}">
+	                  <a href ng-click="switchTab('dataDictionary')">Data Dictionary</a>
+	                </li>
+	                <li ng-class="{active: currentTab == 'dataFeeds'}">
+	                  <a href ng-click="switchTab('dataFeeds')">Data Feeds</a>
+	                </li>
+	                <li ng-class="{active: currentTab == 'violationChecks'}">
+	                  <a href ng-click="switchTab('violationChecks')"> Violation Checks</a>
+	                </li>
+	              </ul>
+	            </div>
+	
+	            <!-- data dictionary -->
+	             <div ng-hide="currentTab != 'dataDictionary'">
+	               <table class="table table-striped table-bordered table-hover data-dictionary">
+	                 <thead>
+	                 <tr>
+	                   <th>Type</th>
+	                   <th>Name</th>
+	                   <th>Data Type</th>
+	                   <th>Options</th>
+	                   <th>Visible</th>
+	                   <th>VisibilitySeq</th>
+	                   <th>ShowUIFilter</th>
+	                 </tr>
+	                 </thead>
+	                 <tbody>
+	                 <tr ng-repeat="item in modal.dataDictionaryItems">
+	                   <td>{{item.type}}</td>
+	                   <td>{{item.name}}</td>
+	                   <td>{{item.dataType}}</td>
+	                   <td>{{item.options}}</td>
+	                   <td>
+	                     <i ng-class="{'icon-ok green': item.visible, 'icon-remove red': !item.visible}"></i>
+	                   </td>
+	                   <td>
+	                     <span>{{item.visibilitySeq}}</span>
+	                   </td>
+	                   <td>
+	                     <i ng-class="{'icon-ok green': item.showUIFilter, 'icon-remove red': !item.showUIFilter}"></i>
+	                   </td>
+	                 </tr>
+	                 </tbody>
+	               </table>
+	             </div>
+	
+	            <!-- data feeds -->
+	
+	            <div ng-hide="currentTab != 'dataFeeds'">
+	              <div class="filter">Minimum data feeds required
+	              	<input type="number" size="4" ng-model="modal.minimumDataFeedsRequired" ng-disabled="true"/>
+	              </div>
+	
+	              <div class="widget-box no-border" ng-repeat="instance in modal.dataFeedsInstances | limitTo: modal.minimumDataFeedsRequired">
+	                  <div class="widget-header">
+	                    <h5><input type="text" ng-model="instance.name" placeholder="Name" ng-disabled="true"/></h5>
+	                    <div class="widget-toolbar">
+	                      <a href ng-click="toggleDataFeedSection(instance, $event)">
+	                        <i class="1 bigger-125"
+	                           ng-class="{'icon-chevron-down': !instance.showSection, 'icon-chevron-up': instance.showSection}"></i>
+	                      </a>
+	                    </div>
+	
+	                    <div class="widget-toolbar no-border">
+	                      Data feed definition
+	                      <select ng-model="instance.dataFeedId"
+	                              ng-options="definition.id as definition.name for definition in modal.feedsDefinitions"
+	                              ng-disabled="true">
+	                      </select>
+	
+<!-- 	                  <button class="btn btn-xs btn-yellow bigger" ng-click="displayDataFeedDefinition(instance.dataFeedId)" ng-disabled="instance.dataFeedId == null">
+	                        <i class="icon-zoom-in"></i>
+	                        View
+	                      </button> -->
+	                    </div>
+	                  </div>
+	
+	                  <div class="widget-body" ng-if="instance.showSection">  <!-- use if not hide -->
+	                    <div class="widget-body-inner">
+	                      <div class="widget-main">
+	                        <div class="control-group">
+	                          <label class="control-label">Source</label>
+	
+	                          <div class="controls">
+	                            <input type="text" ng-model="instance.source" required ng-disabled="true"/>
+	                          </div>
+	                        </div>
+	                        <div class="control-group">
+	                          <label class="control-label">Aggregation Priority</label>
+	
+	                          <div class="controls">
+	                            <input type="text" ng-model="instance.aggregationPriority" required ng-disabled="true"/>
+	                          </div>
+	                        </div>
+	                        <div class="control-group" ng-class="{'error': instance.jsonInvalid}">
+	                          <label class="control-label">Config Json</label>
+	                          <div class="controls">
+	                              <div ui-ace="{mode:'javascript'}" ng-model="instance.configJson" style="height:240px;"></div>
+		                          <span ng-show="instance.jsonInvalid">
+		                            <i class="icon-remove-sign"></i>
+		                            <span class="help-inline">This is not a valid Json.</span>
+		                          </span>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+	                  </div>
+	              </div>
+	            </div>
+	
+	            <!-- violation checks -->
+	            <div ng-hide="currentTab != 'violationChecks'">
+	            <div class="red" ng-show="displayNonVisibleDictionaryItem() != null">
+	            	<i class="icon-warning-sign"></i>
+		            <span class="red help-inline">{{displayNonVisibleDictionaryItem()}}</span>
+		        </div>
+	            <table class="table table-striped table-bordered table-hover violation-checks">
+		           <thead>
+	                <tr>
+	                  <th>Violation Definition</th>
+	                  <th ng-repeat="header in modal.validationChecksHeader" ng-show="header.visible">{{header.name}}</th>
+	                </tr>
+	                </thead>
+					<tbody>
+	                <tr ng-repeat="check in modal.validationChecks">
+	                  <td>{{check.name}}</td>
+			      	  <td ng-repeat="header in modal.validationChecksHeader" ng-show="header.visible">
+	                  	<select  ng-options="instance.id as instance.name for instance in check.instances"
+				              data-placeholder="Select"
+				              ng-model="modal.validationChecksMap[header.name][check.name]"
+				              ng-disabled="true"
+				              >
+				      	</select>
+	                  </td>   
+	                </tr>
+	                </tbody>            
+	            </table>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	
+
+
+  </div>
+  <div class="modal-footer">
+    <button ng-click="modal.cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+</div>

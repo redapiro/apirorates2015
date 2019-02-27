@@ -1,0 +1,33 @@
+<div ng-controller="entityAuditController">
+  <span navbar></span>
+
+  <div class="main-container container-fluid">
+    <span sidenav></span>
+
+    <div class="main-content">
+      <div class="page-content">
+        <div audit-navbar></div>
+        <div class="row-fluid">
+          <div class="span12">
+            <!--PAGE CONTENT BEGINS-->
+            <div class="row-fluid">
+              <div class="span12">
+                <div entity-audit-grid columns="columns" taskuuid="taskUUID">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--<div class="space-6"></div>-->
+          <div class="hr hr32 hr-dotted"></div>
+
+          <!--PAGE CONTENT ENDS-->
+        </div>
+        <!--/.span-->
+      </div>
+      <!--/.row-fluid-->
+    </div>
+    <!--/.page-content-->
+  </div>
+</div>
+

@@ -1,0 +1,26 @@
+<div class="modal">
+  <div id="blockerScreen" ng-show="false">
+    <div class="loading-image" alt="spinner"></div>
+  </div>
+  <div>
+    <div class="modal-header clearfix">
+      <h4 class="smaller lighter blue">System Status </h4>
+    </div>
+    <div class="modal-body-no-max-height" ng-show="modal.getNewState() && !modal.error">
+      <!-- Start of Rates table template -->
+        The system is about to transition to: {{getFriendlyName(modal.getNewState())}}
+    </div>
+    <div class="modal-body-no-max-height" ng-show="!modal.getNewState()">
+      <!-- Start of Rates table template -->
+      System is busy processing status change
+    </div>
+    <div class="modal-body-no-max-height" ng-show="modal.errorMessage">
+      <!-- Start of Rates table template -->
+      {{modal.errorMessage}}
+    </div>
+    <div class="modal-footer">
+      <button ng-click="modal.transition()" class="btn btn-small btn-info" ng-show="modal.getNewState()">Confirm</button>
+      <button class="btn btn-small btn-danger" ng-click="modal.reject()">Cancel</button>
+    </div>
+  </div>
+</div>

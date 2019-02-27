@@ -1,0 +1,19 @@
+<div ng-controller="taskAuditController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div class="widget-body">
+                <div task-audit-grid columns="columns"
+                     log-columns = "logColumns"
+                     action-columns="extraColumnsToAdd"
+                     datasource-url = "datasourceUrl">
+                </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>
+

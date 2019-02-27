@@ -1,0 +1,21 @@
+<div class="widget-box">
+    <div class="widget-header">
+        <span ng-hide="ready">
+          <i class="icon-spinner icon-spin icon-large"></i>
+        </span>
+        <span ng-show="noData">
+
+        </span>
+        <span class="blue" ng-show="sourcingTriggered">
+ 			<i class="icon-spinner icon-spin icon-large"></i>Sourcing has been triggered.
+        </span>
+        <span class="blue" ng-show="distributionTriggered">
+			<i class="icon-spinner icon-spin icon-large"></i>Distribution has been triggered.
+        </span>
+    </div>
+</div>
+<div class="widget-body">
+    <div class="widget-main no-padding">
+        <div id="grid" class="grid"></div>
+    </div>
+</div>

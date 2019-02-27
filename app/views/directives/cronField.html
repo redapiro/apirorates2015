@@ -1,0 +1,31 @@
+<div class="form-group disable-select animate-show" >
+  <form class="form-horizontal" xt-form>
+    <label class="col-md-2 control-label">Cron Triggers</label>
+    <div class="col-md-4">
+        <div class="padding-top-10px" ng-show="hasExpressions()">
+          <button class="btn btn-small btn-success" ng-disabled="" ng-click="addNew()">
+            <i class="fa fa-plus"></i> Add
+          </button>
+        </div>
+      <div ng-repeat="source in sourceArray track by $index" ng-show="!hasExpressions()" ng-form="subForm">
+        <div class="input-group" ng-class="{'has-error': subForm.expression.$error.badExpression, 'quartz-field-padding-top': ($index > 0)}">
+          <input class="form-control" type="text"
+                 name="expression"
+                 ng-model="sourceArray[$index]"
+                 autocomplete="off"
+                 cron-field-validator xt-validate msg-bad-expression="Incorrect Quartz cron entry">
+        <span class="input-group-btn">
+        <button class="btn btn-default btn-danger" type="button" ng-click="remove($index)"><i
+          class="glyphicon glyphicon-remove-circle"></i></button> </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="padding-top-10px" ng-show="!hasExpressions()">
+        <button class="btn btn-small btn-success" ng-disabled="" ng-click="addNew()">
+          <i class="fa fa-plus"></i> Add
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

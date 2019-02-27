@@ -1,0 +1,31 @@
+<div class="modal full-screen">
+  <div class="modal-header clearfix">
+    <h4 class="pull-left">Rate Definition import</h4>
+  </div>
+  <div class="modal-body modal-body-no-overflow">
+    <form class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label">Select a feed to import</label>
+          <div class="controls">
+              <select data-ng-options="option as option.name for option in modal.feedInstances"
+                      data-placeholder="Select a feed"
+                      data-chosen
+                      data-ng-model="modal.feed">
+                <option><option>
+              </select>
+          </div>
+      </div>
+
+	  <div class="control-group" ng-show="modal.overwrite">
+          <label class="control-label">Payload</label>
+          <div class="controls payload">
+			  <textarea name="payload" ng-model="modal.payload" rows="10"></textarea>
+          </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="importFeed()" class="btn btn-success" ng-disabled="!modal.feed">Import</button>
+    <button ng-click="cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+</div>

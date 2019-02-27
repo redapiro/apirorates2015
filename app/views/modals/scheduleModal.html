@@ -1,0 +1,74 @@
+<div class="modal modal-height-50">
+  <div class="modal-header clearfix">
+    <h4 class="pull-left">Schedule</h4>
+  </div>
+  <div class="modal-body">
+    <form class="form-vertical">
+    	
+    	<div class="control-group" ng-class="{'error': dataFeedDefForm.definition.$dirty && dataFeedDefForm.definition.$invalid}">
+            <label class="control-label">Name:</label>
+            <div class="controls">
+                <input id="name" type="text" name="name" ng-model="modal.schedule.name" required/>
+<!--                <span ng-show="dataFeedDefForm.name.$dirty && dataFeedDefForm.name.$invalid">
+                    <i class="icon-remove-sign"></i>
+                    <span class="help-inline">This is required.</span>
+            </span> -->
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Description:</label>
+            <div class="controls">
+                <input id="description" type="text" name="description" ng-model="modal.schedule.description" required/>
+<!--                <span ng-show="dataFeedDefForm.name.$dirty && dataFeedDefForm.name.$invalid">
+                    <i class="icon-remove-sign"></i>
+                    <span class="help-inline">This is required.</span>
+            </span> -->
+            </div>
+         </div>
+    	
+         <div class="control-group">
+           <label class="control-label">Start Date</label>
+
+           <div class="controls">
+               <input datepicker-popup ng-model="modal.schedule.startDate"  type="date" class="form-control"/>
+               <span class="input-group-addon">
+                    <i class="icon-calendar"></i>
+                </span>
+               <div ng-model="modal.schedule.startTime" ng-change="changed()" class="form-control">
+                    <timepicker hour-step="1" minute-step="1" show-meridian="true"></timepicker>
+               </div>
+           </div>
+        </div>
+        
+        <div class="control-group">
+           <label class="control-label">End Date</label>
+
+           <div class="controls">
+                <input datepicker-popup ng-model="modal.schedule.endDate"  type="date" class="form-control" />
+                <span class="input-group-addon">
+                    <i class="icon-calendar"></i>
+                </span>
+                <div ng-model="modal.schedule.endTime" ng-change="changed()" class="form-control">
+                    <timepicker hour-step="1" minute-step="1" show-meridian="true"></timepicker>
+               </div>
+           </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Repeats:</label>
+            <div class="controls span3" style="margin-left:0px">
+               <select data-ng-model="modal.schedule.repeat"
+                 ng-options="repeat for repeat in modal.repeats"
+                 data-placeholder="Select"
+                 data-chosen
+                 class="form-control">
+               </select>
+            </div>
+         </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+      <button ng-click="modal.schedule()" class="btn  btn-success">Schedule</button>
+      <button ng-click="modal.cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+</div>

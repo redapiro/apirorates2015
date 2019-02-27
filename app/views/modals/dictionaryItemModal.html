@@ -1,0 +1,100 @@
+<div class="modal">
+  <div>
+    <div class="modal-header clearfix page-header position-relative">
+      <h4 class="smaller lighter blue">Dictionary Item </h4>
+    </div>
+    <form class="form-horizontal" novalidate name="rateSchemaDefForm">
+      <div class="control-group">
+        <div class="alert alert-danger" class="animated fadeIn " ng-show="modal.errorMessage">
+          <span>{{modal.errorMessage}}</span>
+        </div>
+        <div class="span6">
+          <label class="control-label">Dictionary Type</label>
+
+          <div class="controls">
+            <select ng-model="modal.dicType" ng-change="modal.onDicTypeChanged()" required
+                    data-placeholder="Select Type"
+                    data-chosen>
+              <option>DIMENSION</option>
+              <option>ATTRIBUTE</option>
+              <option>PROPERTY</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="span6">
+          <label class="control-label">Dictionary Name</label>
+
+          <div class="controls">
+            <select ng-model="modal.newRateSchemaEntryItem.dicDTO" chosen
+                    data-placeholder="Select Dictionary"
+                    ng-options="def.name for def in modal.selectedDataDictionaryDefs"
+                    ng-change="modal.onDicNameChanged()" required>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="span6">
+          <label class="control-label">Aggregation Algorithm Name</label>
+
+          <div class="controls">
+            <select ng-model="modal.newRateSchemaEntryItem.aggregationAlgorithmInstanceDTO"
+                    data-placeholder="Select Algorithm" chosen
+                    ng-options="inst.name for inst in modal.selectedFieldAggregationAlgs"
+                    ng-change="modal.onAlgNameChanged()" required>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="span6">
+          <label class="control-label">Visible</label>
+
+          <div class="controls">
+            <input type="checkbox" ng-model="modal.newRateSchemaEntryItem.visible">
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="span6">
+          <label class="control-label">Show grid filter</label>
+
+          <div class="controls">
+            <input type="checkbox" ng-model="modal.newRateSchemaEntryItem.showUIFilter">
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="span6">
+          <label class="control-label">CA Scaling</label>
+
+          <div class="controls">
+            <input type="checkbox" ng-model="modal.newRateSchemaEntryItem.caScaling">
+          </div>
+        </div>
+      </div>
+
+      <!--<button type="submit" class="btn btn-mini btn-yellow" ng-click="addRateSchemaEntryItem()"-->
+              <!--ng-disabled="schemaform.$invalid">Add-->
+      <!--</button>-->
+
+    </form>
+    <div class="modal-footer">
+      <button ng-click="modal.doSaveOp()" class="btn btn-small btn-success">
+      Add
+      <i class="icon-arrow-right icon-on-right bigger-110"></i>
+      </button>
+
+      <button ng-click="modal.doCancelOp()" class="btn btn-small btn-danger">
+      Cancel
+      <i class="icon-ban-circle icon-on-right bigger-110"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+<div class="modal full-screen">
+  <div id="blockerScreen" ng-show="!modal.ready">
+    <div class="loading-image" alt="spinner"></div>
+  </div>
+  <div ng-show="modal.ready">
+    <div class="modal-header clearfix">
+      <h4 class="smaller lighter blue">Manual Adjustment <i ng-show="modal.locked" class="icon-lock icon-yellow" title="Locked for approval"></i></h4>
+    </div>
+    <div class="modal-body-no-max-height">
+
+      <!-- start of form elements describing rate being edited -->
+      <div class="widget-header widget-header-small header-color-dark">
+        <span>
+          Symbol <span class="badge badge-info">{{modal.rateDef.symbol}}
+          </span>
+        </span>
+        <span>
+          Currency <span class="badge badge-info">{{modal.rateDef.currency}}
+          </span>
+        </span>
+        <span>
+          Instrument <span class="badge badge-info">{{modal.rateDef.instrumentType}}
+          </span>
+        </span>
+        <span>
+          Market <span class="badge badge-info">{{modal.rateDef.market}}
+          </span>
+        </span>
+        Minimum rates: <span class="badge badge-info">{{modal.loadedRate.minimumRates}}</span>
+      <div class="widget-toolbar no-border">
+      </div>
+      </div>
+
+      <!-- Start of Rates table template -->
+      <table id="sample-table-1" class="table table-striped table-bordered table-hover">
+        <thead ng-show="modal.rawHeaders.length > 0">
+        <tr>
+          <!--<th class="center">-->
+            <!--<label>-->
+              <!--<input type="checkbox" class="ace" ng-model="modal.checkedAllStatus">-->
+              <!--<span class="lbl"></span>-->
+            <!--</label>-->
+          <!--</th>-->
+          <th class="left">Feed</th>
+          <th class="left">Day Count</th>
+          <th class="left">Market Date</th>
+          <th class="center" ng-repeat="header in modal.rawHeaders">{{header}}</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <!-- Historical golden -->
+        <tr class="row-white">
+          <td colspan="100%" class="center">
+            <h5 class="smaller lighter blue">Last market close golden</h5>
+          </td>
+        </tr>
+        <tr ng-repeat="raw in modal.lastMarketCloseGoldenRateTableContents track by $index"
+            ng-show="modal.lastMarketCloseGoldenRateTableContents.length >0">
+          <td class="left" colspan="2"></td>
+          <td class="left" >{{raw.creationDate}}</td>
+          <td class="left" ng-repeat="value in raw.values">
+            <input type="checkbox" class="ace" ng-model="value.selected" ng-change="updateTotals(value.dictionaryName)"
+                   ng-show="modal.displayEntryCheckboxes">
+            <span class="lbl">&nbsp;&nbsp;{{value.typedValue}}</span>
+          </td>
+        </tr>
+        <tr ng-show="modal.lastMarketCloseGoldenRateTableContents.length == 0">
+          <td colspan="100%">
+            <div class="alert alert-in-table-cell">
+              No rates found.
+            </div>
+          </td>
+        </tr>
+
+        <!-- Golden intraday -->
+        <tr class="row-white">
+          <td colspan="100%" class="center">
+            <h5 class="smaller lighter blue">Last intraday golden</h5>
+          </td>
+        </tr>
+        <tr ng-repeat="raw in modal.lastIntraDayGoldenTableContents track by $index">
+          <td class="left" colspan="2"></td>
+          <td class="left" >{{raw.creationDate}}</td>
+          <td class="left" ng-repeat="value in raw.values" >
+            <label>
+              <input type="checkbox" class="ace" ng-model="value.selected" ng-change="updateTotals(value.dictionaryName)"
+                     ng-show="modal.displayEntryCheckboxes">
+              <span class="lbl">&nbsp;&nbsp;{{value.typedValue}}</span>
+            </label>
+          </td>
+        </tr>
+        <tr ng-show="modal.lastIntraDayGoldenTableContents.length == 0">
+          <td colspan="100%" class="cell-white">
+            <div class="alert alert-in-table-cell">
+              No rates found.
+            </div>
+          </td>
+        </tr>
+        <!-- RAW -->
+        <tr class="row-white">
+          <td colspan="100%" class="center">
+            <h5 class="smaller lighter blue">Current values and violations</h5>
+          </td>
+        </tr>
+
+        <tr ng-repeat="raw in modal.rawRateTableContents track by $index">
+          <td class="left">{{raw.sourceFeedName}}</td>
+          <td class="left">{{raw.dayCount}}</td>
+          <td class="left">{{raw.creationDate}}</td>
+          <td class="left" ng-repeat="value in raw.values" ng-class="{'table-cell-error': !value.valid}"
+              ng-class="{'table-cell-error': !value.valid}">
+            <label>
+              <input type="checkbox" class="ace" ng-model="value.selected" ng-change="updateTotals(value.dictionaryName)"
+                     ng-show="modal.displayEntryCheckboxes">
+              <span class="lbl">&nbsp;&nbsp;{{value.typedValue}}</span>
+            </label>
+          </td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td class="center" colspan="3">Final value to use</td>
+          <td class="left" ng-repeat="value in modal.derivedValues" ng-show="!modal.displayManualEntry">
+            {{value.derived}}
+          </td>
+          <td class="left" ng-repeat="value in modal.derivedValues" ng-show="modal.displayManualEntry">
+            <input ng-model="value.derived" type="text" class="input-small cell-highlight" ng-change="updateTotals()">
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button ng-click="modal.save()" class="btn  btn-success" ng-disabled="!modal.enableSave">Save</button>
+      <button class="btn btn-danger" ng-click="modal.closeDialog()">Cancel</button>
+    </div>
+  </div>
+</div>

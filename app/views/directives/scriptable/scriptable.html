@@ -1,0 +1,199 @@
+<article class="col-sm-12 col-md-12 col-lg-12">
+    <section id="widget-grid" data-widget-grid>
+      <div class="row">
+    <div id="uniqueWidgetId" data-jarvis-widget>
+      <header>
+        <h2><strong>Default</strong> <i>Widget</i></h2>
+      </header>
+      <!-- widget div-->
+      <div>
+        <!-- widget content -->
+        <div class="widget-body">
+          <p> Widget comes with a default 10 padding to the body which can be removed by adding the class <code>.no-padding</code>
+            to the <code>.widget-body</code> class. The default widget also comes with 5 widget buttons as displayed on top right
+            corner of the widget header. </p>
+          <a href-void class="btn btn-default btn-lg"> <strong>Big</strong> <i>Button</i> </a>
+        </div>
+        <!-- end widget content -->
+      </div>
+    </div>
+        </div>
+    </section>
+
+    <div class="span12">
+      <div class="widget-box">
+        <!--<div class="widget-body">-->
+        <form class="form-horizontal" novalidate name="form">
+
+          <div class="row-fluid">
+            <ul class="nav nav-tabs">
+              <li ng-class="{active: isShowForm()}" ng-click="setShowForm()">
+                <a>Settings</a>
+              </li>
+              <li ng-class="{active: !isShowForm()}" ng-click="unsetShowForm()">
+                <a>Scriptable</a>
+              </li>
+            </ul>
+
+            <div class="span10 top-spacer-20px" ng-show="isShowForm()">
+              <div class="control-group" data-ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                <label for="name" class="control-label">Name:</label>tt
+
+                <div class="controls">
+                  <input id="name" type="text" name="name" ng-model="instance.name" required/>
+                <span ng-show="form.name.$dirty && form.name.$invalid">
+                <i class="icon-remove-sign"></i>
+                <span class="help-inline">This is required.</span>
+                </span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" class="control-label" for="description">Description:</label>
+
+                <div class="controls">
+                  <input type="text" id="description" ng-model="instance.description"/>
+                </div>
+              </div>
+
+              <div class="control-group" ng-show="isDefinitionMode"
+                   ng-class="{'error': form.language.$dirty && form.language.$invalid}">
+                <label class="control-label">Script Language:</label>
+
+                <div class="controls">
+                  <select name="language"
+                          data-placeholder="Select"
+                          data-ui-select2
+                          data-ng-model="instance.language">
+                    <option value=""></option>
+                    <option ng-repeat="language in implementationLanguages"
+                            value="{{language.knownImplementationLanguage}}">{{language.displayName}}
+                    </option>
+                  </select>
+                      <span ng-show="form.language.$dirty && form.language.$invalid">
+                        <i class="icon-remove-sign"></i>
+                        <span class="help-inline">This is required.</span>
+                      </span>
+                </div>
+              </div>
+
+              <!-- This is where the custom form components are rendered -->
+              <div ng-show="isInstanceMode" instance-form></div>
+              <div ng-show="isDefinitionMode" definition-form></div>
+
+              <div class="control-group" ng-show="isInstanceMode"
+                   ng-class="{'error': rawValInsForm.def.$dirty && rawValInsForm.def.$invalid}">
+                <label class="control-label">Available Definitions:</label>
+
+                <div class="controls">
+                  <select name="def"
+                          data-placeholder="Select"
+                          data-ui-select2
+                          ng-model="instance.definitionId"
+                          ng-required="isInstanceMode">
+                    <option value=""></option>
+                    <option ng-repeat="def in existingDefinitions" value="{{def.id}}">{{def.name}}</option>
+                  </select>
+                <span ng-show="form.def.$dirty && form.def.$invalid">
+                  <i class="icon-remove-sign"></i>
+                  <span class="help-inline">This is required.</span>
+                </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="control-group" ng-show="!isShowForm()">
+              <div class="span12">
+                <div class="widget-box">
+                  <div class="widget-header">
+                    <div class="widget-toolbar no-border">
+                      <ul class="nav nav-tabs" ng-show="isDefinitionMode">
+                        <li ng-class="{active: showingScript && isDefinitionMode}">
+                          <a ng-click="showScript()">{{selectedLanguage.fieldName}}</a>
+                        </li>
+                        <li ng-class="{active: !showingScript }">
+                          <a ng-click="hideScript()">JSON Schema</a>
+                        </li>
+                      </ul>
+                      <ul class="nav nav-tabs" ng-show="isInstanceMode">
+                        <li ng-class="{active: isInstanceMode}">
+                          <a ng-click="hideScript()">JSON Config</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="widget-body">
+                    <div class="" ng-show="showingScript && isDefinitionMode"
+                         ng-class="{'error': form.script.$dirty && form.script.$invalid}">
+
+
+                      <div class="">
+                        <div
+                          ui-ace="{onLoad: aceLoaded}"
+                          class="scriptEditor"
+                          ng-model="instance.script"
+                          style="width:100%; height:500px;"></div>
+                      </div>
+                      <span ng-show="form.script.$dirty && form.script.$invalid">
+                        <i class="icon-remove-sign"></i>
+                          <span class="help-inline">This is required.</span>
+                          </span>
+                    </div>
+                    <div class="" ng-show="!showingScript && !isInstanceMode"
+                         ng-class="{'error': form.script.$dirty && form.script.$invalid}">
+
+
+                      <div class="">
+                        <div
+                          ui-ace="{useWrapMode : true, mode: 'javascript'}"
+                          class="schemaEditor"
+                          ng-model="instance.jsonSchema"
+                          style="width:100%; height:500px;"></div>
+                      </div>
+                      <span ng-show="form.script.$dirty && form.script.$invalid">
+                        <i class="icon-remove-sign"></i>
+                          <span class="help-inline">This is required.</span>
+                          </span>
+                    </div>
+                    <div class="" ng-show="isInstanceMode"
+                         ng-class="{'error': form.script.$dirty && form.script.$invalid}">
+
+                      <div class="">
+                        <div
+                          ui-ace="{useWrapMode : true, mode: 'javascript'}"
+                          class="schemaEditor"
+                          ng-model="instance.jsonConfig"
+                          style="width:100%; height:500px;"></div>
+                      </div>
+                      <span ng-show="form.script.$dirty && form.script.$invalid">
+                        <i class="icon-remove-sign"></i>
+                          <span class="help-inline">This is required.</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="alert alert-danger" class="animated fadeIn" ng-show="validationError">
+            Validation failures occurred:
+            <ul>
+              <li ng-repeat="validationMessage in validationError.errorMessages">{{validationMessage.message}}</li>
+            </ul>
+          </div>
+          <div class="form-actions center">
+            <button ng-click="doSaveOp()" ng-disabled="!form.$valid" class="btn btn-small btn-success">
+              Save
+              <i class="icon-arrow-right icon-on-right bigger-110"></i>
+            </button>
+
+            <button ng-click="doCancelOp()" class="btn btn-small btn-danger">
+              Cancel
+              <i class="icon-ban-circle icon-on-right bigger-110"></i>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </article>

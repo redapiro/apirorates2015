@@ -1,0 +1,135 @@
+<div ng-controller="editDistributionDefsController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div class="widget-body">
+            <div class="jarviswidget jarviswidget-sortable animate-show" data-widget-colorbutton="false"
+                 data-widget-editbutton="false" role="widget" style="" ng-show="ready">
+              <header role="heading">
+                <div class="jarviswidget-ctrls" role="menu">
+                </div>
+                <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+
+                <h2>Distribution details</h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+              </header>
+
+              <div role="content">
+                <div class="jarviswidget-editbox">
+                </div>
+                <div class="widget-body">
+                  <form class="form-horizontal" novalidate name="scriptForm" xt-form>
+                    <fieldset>
+                      <div class="form-group"
+                           data-ng-class="{'has-error':scriptForm.name.$invalid && !scriptForm.name.$pristine}">
+                        <label class="col-md-2 control-label">Name</label>
+
+                        <div class="col-md-6">
+                          <input required name="name" class="form-control input-sm" type="text"
+                                 data-ng-model="instance.name" xt-validate>
+                        </div>
+                      </div>
+                      <div class="form-group"
+                           data-ng-class="{'has-error':scriptForm.description.$invalid && !scriptForm.description.$pristine}">
+                        <label class="col-md-2 control-label">Description</label>
+
+                        <div class="col-md-6">
+                          <input required name="description" class="form-control input-sm" type="text"
+                                 data-ng-model="instance.description" xt-validate>
+                        </div>
+                      </div>
+                      <div class="form-group" ng-if="ready"
+                           data-ng-class="{'error': scriptForm.rateCollectionId.$dirty && scriptForm.rateCollectionId.$invalid}">
+                        <label class="col-md-2 control-label">Rate Collection</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="definition" data-ng-model="instance.rateCollection" theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{instance.rateCollection.name}}</ui-select-match>
+                            <ui-select-choices repeat="def in references.rateCollections | highlight: $select.search">
+                              <div data-ng-bind-html="def.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+                      <div class="form-group" ng-if="ready"
+                           data-ng-class="{'error': scriptForm.instance.distributionFormatter.$dirty && scriptForm.instance.distributionFormatter.$invalid}">
+                        <label class="col-md-2 control-label">Converter</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.distributionFormatter"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{instance.distributionFormatter.name}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="formatter in references.formatter | highlight: $select.search">
+                              <div data-ng-bind-html="formatter.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+                      <div class="form-group" ng-if="ready"
+                           data-ng-class="{'error': scriptForm.instance.distributionFormatter.$dirty && scriptForm.instance.distributionFormatter.$invalid}">
+                        <label class="col-md-2 control-label">Data Sinks</label>
+
+                        <div class="col-md-6">
+                          <ui-select multiple name="definition" data-ng-model="instance.dataSinkIds" theme="bootstrap"
+                                     close-on-select="false">
+                            <ui-select-match placeholder="Choose">{{$item.name}}</ui-select-match>
+                            <ui-select-choices
+                              repeat="dataSink.id as dataSink in references.dataSinks | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="dataSink.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-2 control-label">Enabled</label>
+
+                        <div class="col-md-10">
+
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" class="checkbox style-0" ng-model="instance.enabled">
+                              <span></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <cron-field expression-source="instance.cronTriggers"></cron-field>
+                      </div>
+                    </fieldset>
+
+                    <div errors-display class="alert alert-danger animated fadeIn"
+                         error-messages="errorMessages"></div>
+                    <div class="form-actions center">
+                      <button ng-click="doSaveOp()" ng-disabled="!scriptForm.$valid"
+                              class="btn btn-small btn-primary">
+                        <i class="fa fa-save"></i>
+                        Save
+                        <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                      </button>
+
+                      <button ng-click="doCancelOp()" class="btn btn-small btn-danger">
+                        Cancel
+                        <i class="icon-ban-circle icon-on-right bigger-110"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="col-xs-8 col-sm-5 col-md-5 col-lg-8 grid-status" ng-show="statusData">
+  <div class="status-bar-panel-70 bordered-status"> <span class="text status-text"> Rates/Second </span>
+    <span class="txt-color-blue">{{statusData.ratesPerSec}}</span>
+    <div class="progress progress-status">
+      <div class="progress-bar show-stats bg-color-blue progress-status-bar" ng-style="speedInPercentage"></div>
+    </div>
+  </div>
+  <div class="status-bar-panel-70 bordered-status-no-left">
+    <span class="text status-text"> Violations </span>
+    <div>
+      <span class="txt-color-red">{{validationFailureCount}}</span>
+    </div>
+  </div>
+  <div class="status-bar-panel-70 bordered-status-no-left">
+    <span class="text status-text"> Speed (μs) </span>
+    <div>
+      <span class="txt-color-blue">{{statusData.microseconds > 9999 ? '>' : statusData.microseconds}}</span>
+    </div>
+  </div>
+  <div class="status-bar-panel-100 bordered-status-no-left">
+    <span class="text status-text"> Current feed</span>
+    <div>
+      <span class="txt-color-blue">{{currentFeed()}}</span>
+    </div>
+  </div>
+</div>

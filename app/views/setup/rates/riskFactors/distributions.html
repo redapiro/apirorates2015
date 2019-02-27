@@ -1,0 +1,24 @@
+<div ng-controller="distributionCrossDefsController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div class="widget-body">
+          <div id="content">
+            <div ng-show="!editMode">
+              <!--PAGE CONTENT BEGINS-->
+              <div simple-grid
+                   columns="columns"
+                   datasource-url="datasourceUrl"
+                   action-columns="extraColumnsToAdd"
+                   refresh-trigger="refreshView"
+                   toolbar-action="gridAction">
+              </div>
+            </div>
+            <!--/.row-fluid-->
+          </div>
+        </div>
+      </section>
+      </article>
+  </div>
+</div>

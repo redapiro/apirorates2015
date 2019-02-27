@@ -1,0 +1,21 @@
+<div ng-controller="crossRateCollectionController" class="animated fadeIn" ng-show="ready">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div class="widget-body" ng-show="!editMode">
+            <div simple-grid
+                 columns="columns"
+                 datasource-url="datasourceUrl"
+                 action-columns="extraColumnsToAdd"
+                 refresh-trigger="refreshView"
+                 toolbar-action="gridAction">
+            </div>
+          </div>
+        </div>
+        <!--/.page-content-->
+      </section>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div ng-controller="postCloseProcessController">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show="$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <div id="content">
+      <manage-scriptable mode="mode" scriptable-entity="scriptableEntity"
+                         instance-form="'post-close-process-instance-form'"
+                         grid-title="'Post Close Process'"></manage-scriptable>
+    </div>
+  </div>
+</div>

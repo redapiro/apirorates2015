@@ -1,0 +1,74 @@
+<div class="modal full-screen">
+  <div class="modal-header clearfix">
+    <h4 class="pull-left">Data Dictionary</h4>
+  </div>
+  <div class="modal-body modal-body-no-overflow dataDictionary">
+    <form class="form-vertical" novalidate name="dataDictionaryForm">
+      <div class="control-group" ng-class="{'error': dataDictionaryForm.dicType.$dirty && dataDictionaryForm.dicType.$invalid}">
+	      <label for="dicType">Dictionary Type:</label>
+	      <input id="dicType" type="text" name="dicType" ng-model="modal.dataDictionary.dicType" required readonly="true"/>
+
+	      <span ng-show="dataDictionaryForm.dicType.$dirty && dataDictionaryForm.dicType.$invalid">
+		      <i class="icon-remove-sign"></i>
+		      <span class="help-inline">This is required.</span>
+	      </span>
+      </div>
+      
+      <div class="control-group" ng-class="{'error': dataDictionaryForm.name.$dirty && dataDictionaryForm.name.$invalid}">
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" ng-model="modal.dataDictionary.name" required/>
+        <span ng-show="dataDictionaryForm.name.$dirty && dataDictionaryForm.name.$invalid">
+          	<i class="icon-remove-sign"></i>
+        	<span class="help-inline">This is required.</span>
+        </span>
+      </div>
+      
+      <div class="control-group" ng-class="{'error': dataDictionaryForm.displayName.$dirty && dataDictionaryForm.displayName.$invalid}">
+        <label for="name">Display Name:</label>
+        <input id="displayName" type="text" name="displayName" ng-model="modal.dataDictionary.displayName" required/>
+        <span ng-show="dataDictionaryForm.displayName.$dirty && dataDictionaryForm.displayName.$invalid">
+          	<i class="icon-remove-sign"></i>
+        	<span class="help-inline">This is required.</span>
+        </span>
+      </div>
+      
+	  <div class="control-group" ng-class="{'error': dataDictionaryForm.description.$dirty && dataDictionaryForm.description.$invalid}">
+	      <label for="description">Description:</label>
+	      <input type="text" name="description" ng-model="modal.dataDictionary.description" size="33" required/>
+	      <span ng-show="dataDictionaryForm.description.$dirty && dataDictionaryForm.description.$invalid">
+	         	<i class="icon-remove-sign"></i>
+	      	 	<span class="help-inline">This is required.</span>
+	       </span>
+      </div>
+      
+	  <div class="control-group" width="220px" ng-class="{'error': dataDictionaryForm.type.$dirty && dataDictionaryForm.type.$invalid}">
+	      <label>Type:</label>
+	      <select name="modal.dataDictionary.type"
+	              ng-options="type as type for type in modal.types"
+	              data-placeholder="Select"
+	              data-chosen
+	              data-ng-model="modal.dataDictionary.type">
+	        <option><option>
+	      </select>
+	      <span ng-show="dataDictionaryForm.type.$dirty && dataDictionaryForm.type.$invalid">
+		      <i class="icon-remove-sign"></i>
+		      <span class="help-inline">This is required.</span>
+	      </span>
+      </div>
+      
+      <div class="control-group">
+	      <label>Options:</label>
+	      <textarea name="options" ng-model="modal.dataDictionary.options" size="100" required></textarea>
+      </div>
+      
+      <div class="control-group" style="display:none;">
+	      <input type="text" ng-model="modal.dataDictionary.id" size="33" />
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="modal.save()" class="btn btn-success" ng-disabled="dataDictionaryForm.$invalid">Submit</button>
+    <button ng-click="modal.cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+</div>

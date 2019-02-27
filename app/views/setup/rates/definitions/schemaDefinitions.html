@@ -1,0 +1,23 @@
+<div ng-controller="schemaDefinitionsController" class="animated fadeIn">
+  <div id="main" role="main">
+    <!-- RIBBON -->
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <!-- END RIBBON -->
+    <div id="content">
+      <section id="widget-grid">
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div simple-grid
+               columns="columns"
+               datasource-url="datasourceUrl"
+               action-columns="extraColumnsToAdd"
+               refresh-trigger="refreshView"
+               toolbar-action="gridAction">
+          </div>
+        </article>
+      </section>
+
+    </div>
+    <!--/.span-->
+  </div>
+  <!--/.row-fluid-->
+</div>

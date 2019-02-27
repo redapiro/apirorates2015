@@ -1,0 +1,108 @@
+<div ng-controller="marketController">
+  <span navbar></span>
+  <div class="main-container container-fluid">
+    <span sidenav></span>
+    <div class="main-content" ng-show="!editMode">
+      <div class="page-content">
+        <div class="row-fluid">
+          <div class="span12">
+            <!--PAGE CONTENT BEGINS-->
+            <div class="row-fluid">
+              <div class="span12">
+                <div simple-grid
+                     columns="columns"
+                     datasource-url = "datasourceUrl"
+                     action-columns = "extraColumnsToAdd"
+                     refresh-trigger = "refreshView"
+                     toolbar-action = "gridAction">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="space-6"></div>-->
+          <div class="hr hr32 hr-dotted"></div>
+          <!--PAGE CONTENT ENDS-->
+        </div>
+        <!--/.span-->
+      </div>
+      <!--/.row-fluid-->
+    </div>
+    <div class="main-content" ng-show="editMode">
+	    <div class="page-content">
+	      <div class="page-header position-relative">
+	        <h1>
+	          Market
+	        </h1>
+	      </div>
+	      <div class="row-fluid">
+	        <div class="span12">
+	          <!--PAGE CONTENT BEGINS-->
+	          <div class="row-fluid">
+	            	
+<div class="span12">
+  <div class="widget-box">
+    <!--<div class="widget-body">-->
+     <form class="form-vertical" novalidate name="scriptForm">
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="control-group" ng-class="{'error': scriptForm.name.$dirty && scriptForm.name.$invalid}">
+            <label for="name">Name:</label>
+
+            <div class="controls">
+              <input id="name" type="text" name="name" ng-model="instance.name" required/>
+                <span ng-show="scriptForm.name.$dirty && scriptForm.name.$invalid">
+                  <i class="icon-remove-sign"></i>
+                  <span class="help-inline">This is required.</span>
+                </span>
+            </div>
+          </div>
+         </div> 
+      </div>
+      <div class="row-fluid">
+        <div class="span4">
+          <div class="control-group" ng-class="{'error': scriptForm.name.$dirty && scriptForm.name.$invalid}">
+            <label for="name">Calendar:</label>
+
+            <div class="controls">
+             <select data-ng-model="instance.calendarId"
+               	 ng-options="calendar.id as calendar.name for calendar in calendars"
+               	 data-placeholder="Select"
+                 data-chosen="">
+     		</select>
+                <span ng-show="scriptForm.name.$dirty && scriptForm.name.$invalid">
+                  <i class="icon-remove-sign"></i>
+                  <span class="help-inline">This is required.</span>
+                </span>
+            </div>
+          </div>
+         </div> 
+      </div>      
+      <div class="form-actions center">
+        <button ng-click="doSaveOp()" ng-disabled="!scriptForm.$valid" class="btn btn-small btn-success">
+          Save
+          <i class="icon-arrow-right icon-on-right bigger-110"></i>
+        </button>
+
+        <button ng-click="doCancelOp()" class="btn btn-small btn-danger">
+          Cancel
+          <i class="icon-ban-circle icon-on-right bigger-110"></i>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+	
+	          </div>
+	        </div>
+	        <!--<div class="space-6"></div>-->
+	        <div class="hr hr32 hr-dotted"></div>
+	        <!--PAGE CONTENT ENDS-->
+	      </div>
+	      <!--/.span-->
+	    </div>
+	    <!--/.row-fluid-->
+	  </div>
+    <!--/.page-content-->
+  </div>
+</div>

@@ -1,0 +1,167 @@
+<div class="modal modal-height-50">
+  <div class="modal-header clearfix">
+    <h4 class="pull-left">New Rate Collection</h4>
+  </div>
+  <div class="modal-body">
+    <form class="form-vertical" novalidate name="rateColFilterIns">
+      <div class="control-group" ng-class="{'error': rateColFilterIns.name.$dirty && rateColFilterIns.name.$invalid}">
+      	<label>Name:</label>
+        <div class="controls">
+        	<input id="name" type="text" name="name" ng-model="modal.rateColFilterIns.name" required/>
+        	<span ng-show="rateColFilterIns.name.$dirty && rateColFilterIns.name.$invalid">
+	          	<i class="icon-remove-sign"></i>
+	        	<span class="help-inline">This is required.</span>
+	        </span>
+        </div>
+      </div>
+      <div class="control-group">
+      	<label>Description:</label>
+        <div class="controls">
+        	<input id="description" type="text" name="description" ng-model="modal.rateColFilterIns.description" />
+        </div>
+      </div>   
+         
+         <!-- Markets -->
+        <div class="control-group row-fluid ">
+          <label class="control-label">Market</label>
+          <div class="controls span6">
+              <span>Available</span>
+          </div>
+          <div class="controls span5">
+            	<span>Assigned</span>
+          </div>
+        </div>
+
+        <div class="control-group row-fluid">
+          <div class="controls span6">
+            <div class="input-group input-group-sm">
+              <select data-ng-model="modal.selMarket"
+              	 ng-options="market for market in modal.references['markets']"
+              	 data-placeholder="Select"
+              	 multiple="multiple"
+                ng-change="modal.onMarketAvailableChanged()">
+        		</select>
+            </div>
+          </div>
+          <div class="controls span5">
+            <div class="input-group input-group-sm">
+               <select data-ng-model="modal.selMarket"
+                ng-options="market for market in modal.markets"
+              	 data-placeholder="Select"
+              	 multiple="multiple"
+                ng-change="modal.onMarketAssignedChanged()">
+        		</select>
+            </div>
+          </div>
+      </div>
+      
+         <!-- Symbol -->
+        <div class="control-group row-fluid ">
+          <label class="control-label">Symbol</label>
+          <div class="controls span6">
+              <span>Available <input id="symbol" class="span7" type="text" name="symbol" ng-model="modal.selSymbol" ng-change="modal.onSelSymbolChanged()"/></span>
+              
+          </div>
+          <div class="controls span5">
+            	<span>Assigned</span>
+          </div>
+        </div>
+
+        <div class="control-group row-fluid">
+          <div class="controls span6">
+            <div class="input-group input-group-sm">
+        		<select data-ng-model="modal.selSymbol"
+	              	 ng-options="symbol.name as symbol.name for symbol in modal.references['symbols']"
+	              	 data-placeholder="Select"
+	              	 multiple="multiple"
+	              	 ng-change="modal.onSymbolAvailableChanged()">
+        		</select> 
+            </div>
+          </div>
+          <div class="controls span5">
+            <div class="input-group input-group-sm">
+               <select data-ng-model="modal.selSymbol"
+                ng-options="symbol for symbol in modal.symbols"
+              	data-placeholder="Select"
+              	multiple="multiple"
+                ng-change="modal.onSymbolAssignedChanged()">
+        		</select>
+            </div>
+          </div>
+      </div>
+      
+        <!-- Instrument Type -->
+        <div class="control-group row-fluid ">
+          <label class="control-label">Instrument Type</label>
+          <div class="controls span6">
+              <span>Available</span>
+          </div>
+          <div class="controls span5">
+            	<span>Assigned</span>
+          </div>
+        </div>
+
+        <div class="control-group row-fluid">
+          <div class="controls span6">
+            <div class="input-group input-group-sm">
+              <select data-ng-model="modal.selInstrumentType"
+              	 ng-options="instrumentType for instrumentType in modal.references['instrumentTypes']"
+              	 data-placeholder="Select"
+              	 multiple="multiple"
+                ng-change="modal.onInstrumentTypeAvailableChanged()">
+        		</select>
+            </div>
+          </div>
+          <div class="controls span5">
+            <div class="input-group input-group-sm">
+               <select data-ng-model="modal.selInstrumentType"
+                ng-options="instrumentType for instrumentType in modal.instrumentTypes"
+              	 data-placeholder="Select"
+              	 multiple="multiple"
+                ng-change="modal.onInstrumentTypeAssignedChanged()">
+        		</select>
+            </div>
+          </div>
+      </div>   
+
+         <!-- Currency -->
+        <div class="control-group row-fluid ">
+          <label class="control-label">Currency</label>
+          <div class="controls span6">
+              <span>Available</span>
+          </div>
+          <div class="controls span5">
+            	<span>Assigned</span>
+          </div>
+        </div>
+
+        <div class="control-group row-fluid">
+          <div class="controls span6">
+            <div class="input-group input-group-sm">
+              <select data-ng-model="modal.selCurrency"
+              	 ng-options="currency for currency in modal.references['currencies']"
+              	 data-placeholder="Select"
+              	 multiple="multiple"
+                ng-change="modal.onCurrencyAvailableChanged()">
+        		</select>
+            </div>
+          </div>
+          <div class="controls span5">
+            <div class="input-group input-group-sm">
+               <select data-ng-model="modal.selCurrency"
+                ng-options="currency for currency  in modal.currencies"
+              	 data-placeholder="Select"
+              	 multiple="multiple"
+                ng-change="modal.onCurrencyAssignedChanged()">
+        		</select>
+            </div>
+          </div>
+      </div>
+            
+    </form>
+  </div>
+  <div class="modal-footer">
+  	<button ng-click="modal.save()" class="btn btn-success" ng-disabled="rateColFilterIns.$invalid">Submit</button>
+    <button ng-click="modal.cancel()" class="btn btn-danger">Cancel</button>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div ng-controller="rawController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div class="widget-body">
+              <div rates-grid
+                   class="grid-wrapper"
+                   source-url="rawRateSearchPath"
+                   columns="columns"
+                   change-count="changeCount"
+                   table-type="tableType"
+                   display-date-criteria="displayDateCriteria"
+                   editable="false">
+              </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>

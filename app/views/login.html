@@ -1,0 +1,94 @@
+<div ng-controller="loginController" ng-show="show" class="animated fadeIn" >
+  <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
+  <header id="header">
+    <span id="logo">
+      <img src="images/apiro/apirorates-transparent-small.png" alt="Apiro">
+    </span>
+
+    <!--<div id="logo-group">-->
+      <!--<img src="images/apiro/apirorates-transparent-small.png" alt="Apiro">-->
+
+      <!-- END AJAX-DROPDOWN -->
+    <!--</div>-->
+
+    <!--<span id="extr-page-header-space"> <span class="hidden-mobile">Need an account?</span> <a href="register.html" class="btn btn-danger">Create account</a> </span>-->
+
+  </header>
+
+  <div id="main" role="main" class="extr-page">
+    <div id="content" class="container">
+    <!-- MAIN CONTENT -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+          <h1 class="txt-color-red login-header-big">ApiroRates</h1>
+          <div class="hero">
+
+            <div class="pull-left login-desc-box-l">
+              <h4 class="paragraph-header">To find out more about this product and to how to obtain a trial instance on the cloud, please visit our corporate website</h4>
+              <div class="login-app-icons">
+                <a href="http://apiro.com.au/" class="btn btn-danger btn-sm">Find out more</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!--<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">-->
+              <!--<h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>-->
+              <!--<p>-->
+                <!--Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.-->
+              <!--</p>-->
+            <!--</div>-->
+            <!--<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">-->
+              <!--<h5 class="about-heading">Not just your average template!</h5>-->
+              <!--<p>-->
+                <!--Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!-->
+              <!--</p>-->
+            <!--</div>-->
+          </div>
+
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+          <div class="well no-padding">
+            <form id="login-form" name="loginForm" class="smart-form client-form" novalidate="">
+              <header>
+                Sign In
+              </header>
+              <fieldset>
+                <section>
+                  <label class="label">Login</label>
+                  <label class="input" > <i class="icon-append fa fa-user"></i>
+                    <input type="text" ng-disabled="$root.errorContactingServer" name="username" ng-model="login.username" required ng-change="clearError()" autocomplete="off">
+                    <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> Please enter email address/username</b></label>
+                </section>
+                <section>
+                  <label class="label">Password</label>
+                  <label class="input" > <i class="icon-append fa fa-lock"></i>
+                    <input ng-disabled="$root.errorContactingServer" type="password" name="password" ng-model="login.password" required ng-change="clearError()" autocomplete="off">
+                    <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Enter your password</b> </label>
+                </section>
+              </fieldset>
+              <footer>
+                <button ng-show = "!$root.errorContactingServer" class="btn btn-primary" ng-click="doLogin()" ng-disabled="!loginForm.$valid">
+                  Sign in
+                </button>
+                <button ng-show = "$root.errorContactingServer" class="btn btn-danger" ng-click="doLogin()" ng-disabled="$root.errorContactingServer">
+                  Server unreachable, login disabled
+                </button>
+              </footer>
+            </form>
+          </div>
+
+
+          <p class="alert alert-danger show-hide" ng-show="displayBadLogin">
+            {{errorMessage}}
+          </p>
+          <div class="alert alert-success show-hide" ng-show="displaySuccess">
+            <i class="fa-thumbs-up fa fa-times"></i>
+            Logging in, please wait ...
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+</div>

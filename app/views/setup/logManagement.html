@@ -1,0 +1,30 @@
+<div ng-controller="logManagementController" class="animated fadeIn" ng-show="loggers">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show="$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-show="!editMode">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div class="widget-body">
+            <div log-management-grid=""
+                 paginated="false"
+                 data="loggers"
+                 toolbar-action="gridAction">
+            </div>
+            <div class="form-actions center grid-actions">
+              <button ng-click="doSaveOp()" class="btn btn-small btn-primary">
+                <i class="fa fa-save"></i>
+                Save
+                <i class="icon-arrow-right icon-on-right bigger-110"></i>
+              </button>
+              <button ng-click="doCancelOp()" class="btn btn-small btn-danger">
+                Cancel
+                <i class="icon-ban-circle icon-on-right bigger-110"></i>
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>

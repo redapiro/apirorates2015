@@ -1,0 +1,10 @@
+<div ng-controller="rateDistributionFormatterController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <div id="content">
+    <manage-scriptable mode="mode" scriptable-entity="scriptableEntity"
+                       link-url="/setup/rates/linear/distributionFormatter/edit"
+                       grid-title="'Distribution Formatters'"></manage-scriptable>
+    </div>
+  </div>
+</div>

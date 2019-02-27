@@ -1,0 +1,38 @@
+<div class="widget-body">
+  <div class="widget-main no-padding">
+    <div class="slimScrollDiv" style="position: relative; overflow: scroll; width: auto; height: 100%;">
+      <div class="dialogs" style="overflow: hidden; width: auto; height: 600px;">
+        <div class="itemdiv dialogdiv">
+
+          <div class="body">
+            <div ng-repeat="item in auditHistory">
+              <blockquote>
+                <strong>Creation Date:</strong> {{item.item.creationTimePoint}} |
+                <strong>Task Id:</strong> {{item.item.taskId}} |
+                <strong>Task Type Id:</strong> {{item.item.taskTypeId}} |
+                <strong>Reference Id:</strong> {{item.item.referenceId}} |
+                <strong>Principal:</strong> {{item.item.principalId}}
+
+                <p>
+                  <small>Differences</small>
+                </p>
+                <ul ng-repeat="diff in item.diffs">
+
+                  <li><strong>Path:</strong> {{diff.path}}</li>
+                  <li><strong>Change Type:</strong> {{diff.changeType}}<br/></li>
+                  <li><strong>Property:</strong> {{diff.propertyName}}<br/></li>
+                  <li><strong>Property Type:</strong> {{diff.propertyType}}<br/></li>
+                  <li><strong>Old Value:</strong> {{diff.oldVal}}<br/></li>
+                  <li><strong>New Value:</strong> {{diff.newVal}}<br/></li>
+                </ul>
+              </blockquote>
+              <hr/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/widget-main-->
+  </div>
+  <!--/widget-body-->
+</div>

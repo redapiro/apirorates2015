@@ -1,0 +1,1059 @@
+{
+  "id": "JwdMFASI0CaCW0rIifkDxY1Kq0vdwOP9",
+  "lockedForApproval": false,
+  "inactive": false,
+  "name": "SCH_TEST_ASX_BONDS",
+  "dictionaryItems": [
+    {
+      "dicDTO": {
+        "id": "AJMGkggJeBJhJHwlhJkDxY1Y4xHnkeld",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "MATURITY_DATE",
+        "displayName": "Maturity date",
+        "description": "maturity date",
+        "dicType": "PROPERTY",
+        "type": "DATE",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [],
+      "dicDTOId": "AJMGkggJeBJhJHwlhJkDxY1Y4xHnkeld",
+      "dicDTOName": "MATURITY_DATE",
+      "rawRateFieldValidationInsts": []
+    },
+    {
+      "dicDTO": {
+        "id": "1otdV2pGQrSTVnvnMCkDxY1QvtbX5Wn0",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DISC",
+        "displayName": "DISC",
+        "description": "discriminator",
+        "dicType": "PROPERTY",
+        "type": "STRING",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [],
+      "dicDTOId": "1otdV2pGQrSTVnvnMCkDxY1QvtbX5Wn0",
+      "dicDTOName": "DISC",
+      "rawRateFieldValidationInsts": []
+    },
+    {
+      "dicDTO": {
+        "id": "vUc5LrjhgFb4FOkA4nkDxY1gnw31Isuo",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "FACE_VALUE_DEC",
+        "displayName": "Face value",
+        "description": "Face Value",
+        "dicType": "PROPERTY",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}"
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}"
+        }
+      ],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true,
+          "marker": "2015-01-21T21:54:10.197Z"
+        },
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true,
+          "marker": "2015-01-21T21:54:10.197Z"
+        }
+      ],
+      "dicDTOId": "vUc5LrjhgFb4FOkA4nkDxY1gnw31Isuo",
+      "dicDTOName": "FACE_VALUE_DEC",
+      "selectDisplayName": "FACE_VALUE_DEC - Face value (2 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true,
+          "marker": "2015-01-21T21:54:10.197Z"
+        },
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true,
+          "marker": "2015-01-21T21:54:10.197Z"
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "HXHaAfk8h6VxdX2wUKkDxY1qH84iALni",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "COUPON_DEC",
+        "displayName": "Coupon rate",
+        "description": "Coupon Rate",
+        "dicType": "PROPERTY",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ],
+      "dicDTOId": "HXHaAfk8h6VxdX2wUKkDxY1qH84iALni",
+      "dicDTOName": "COUPON_DEC",
+      "selectDisplayName": "COUPON_DEC - Coupon rate (0 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "S2YTfcVK3qhhcvnDtbkDxY1H9EY1CRyq",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "BID_DEC",
+        "displayName": "Bid",
+        "description": "bid",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ],
+      "dicDTOId": "S2YTfcVK3qhhcvnDtbkDxY1H9EY1CRyq",
+      "dicDTOName": "BID_DEC",
+      "selectDisplayName": "BID_DEC - Bid (0 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "cLogykww3JcZndc0n8kDxY1ptmVSr3Il",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "OFFER_DEC",
+        "displayName": "Offer",
+        "description": "offer",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}"
+        }
+      ],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ],
+      "dicDTOId": "cLogykww3JcZndc0n8kDxY1ptmVSr3Il",
+      "dicDTOName": "OFFER_DEC",
+      "selectDisplayName": "OFFER_DEC - Offer (1 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "ZaCAZZCjSfBNSzqMCkkDxY1URtgMpyLC",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DTM_INT",
+        "displayName": "DTM",
+        "description": "days to maturity",
+        "dicType": "ATTRIBUTE",
+        "type": "INTEGER",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "1kh20KZWKSgKPgsrEEkDxY1ISJTS5SAJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "INT_MEAN",
+        "definitionId": "ZHPcdhRmLgw55tDsmakDxY1sc5Of1CfY",
+        "definitionName": "INT_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of int fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [
+        {
+          "id": "Y5bJApPVGvgklLTBK7kDxY13DUFLyZhr",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "DTM_MATURITY_DATE",
+          "definitionId": "ooysqmXsdarqgZdy6ekDxY1b2jYNxJYm",
+          "definitionName": "DAYS_TO_MATURITY",
+          "jsonConfig": "{\n\t\"dateDictionary\":\"MATURITY_DATE\"\n}",
+          "description": "set MID between HIGH and LOW"
+        }
+      ],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [],
+      "dicDTOId": "ZaCAZZCjSfBNSzqMCkkDxY1URtgMpyLC",
+      "dicDTOName": "DTM_INT",
+      "rawRateFieldValidationInsts": []
+    },
+    {
+      "dicDTO": {
+        "id": "7EwZmzxYcmyCDw073UkDxY1zW5J3D6Xs",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "LAST_DEC",
+        "displayName": "Last",
+        "description": "mid",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}"
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}"
+        }
+      ],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ],
+      "dicDTOId": "7EwZmzxYcmyCDw073UkDxY1zW5J3D6Xs",
+      "dicDTOName": "LAST_DEC",
+      "selectDisplayName": "LAST_DEC - Last (2 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "VfCl9TkKJo9KcZB86OkDxY1cvfPfx3X3",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "HIGH_DEC",
+        "displayName": "High",
+        "description": "high",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}"
+        }
+      ],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ],
+      "dicDTOId": "VfCl9TkKJo9KcZB86OkDxY1cvfPfx3X3",
+      "dicDTOName": "HIGH_DEC",
+      "selectDisplayName": "HIGH_DEC - High (1 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "uPh0Tls0nVXyJgPxZhkDxY1rof7I8UhF",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "LOW_DEC",
+        "displayName": "Low",
+        "description": "low",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}"
+        },
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}"
+        }
+      ],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ],
+      "dicDTOId": "uPh0Tls0nVXyJgPxZhkDxY1rof7I8UhF",
+      "dicDTOName": "LOW_DEC",
+      "selectDisplayName": "LOW_DEC - Low (2 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "HekWUGNqoyHP3RcmYLkDxY10r1KtKjrX",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "VALUATION_DEC",
+        "displayName": "Valuation",
+        "description": "valuation",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ],
+      "dicDTOId": "HekWUGNqoyHP3RcmYLkDxY10r1KtKjrX",
+      "dicDTOName": "VALUATION_DEC",
+      "selectDisplayName": "VALUATION_DEC - Valuation (0 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "o6neuEKr615h4gDvUgkDxY1NzrtjSMa9",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "VALUE_DEC",
+        "displayName": "Value",
+        "description": "value",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}"
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}"
+        }
+      ],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ],
+      "dicDTOId": "o6neuEKr615h4gDvUgkDxY1NzrtjSMa9",
+      "dicDTOName": "VALUE_DEC",
+      "selectDisplayName": "VALUE_DEC - Value (2 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "ZdSq7nwf3BBtSJiQNSkDxY1kYAoYWiNf",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "VOLUME_INT",
+        "displayName": "Volume",
+        "description": "volume",
+        "dicType": "ATTRIBUTE",
+        "type": "INTEGER",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "1kh20KZWKSgKPgsrEEkDxY1ISJTS5SAJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "INT_MEAN",
+        "definitionId": "ZHPcdhRmLgw55tDsmakDxY1sc5Of1CfY",
+        "definitionName": "INT_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of int fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [],
+      "dicDTOId": "ZdSq7nwf3BBtSJiQNSkDxY1kYAoYWiNf",
+      "dicDTOName": "VOLUME_INT",
+      "rawRateFieldValidationInsts": []
+    },
+    {
+      "dicDTO": {
+        "id": "G8ceoBekGMbrkWgJRBkDxY16XA2ho1Em",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "YIELD_DEC",
+        "displayName": "YIELD_DEC",
+        "description": "Calculated Yield",
+        "dicType": "ATTRIBUTE",
+        "type": "DECIMAL",
+        "options": [],
+        "formattedOptions": ""
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "aggregationAlgorithmInstance": {
+        "id": "Z8e9VTUpwRWmlYTuRakDxY1msG225eoJ",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "DECIMAL_MEAN",
+        "definitionId": "Blsc1khR7gDA0YL4EhkDxY1y9R60NZbu",
+        "definitionName": "DECIMAL_MEAN_DEF",
+        "jsonConfig": "{}",
+        "description": "average of decimal fields"
+      },
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}"
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}"
+        }
+      ],
+      "postAggregationFieldValidators": [],
+      "items": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ],
+      "dicDTOId": "G8ceoBekGMbrkWgJRBkDxY16XA2ho1Em",
+      "dicDTOName": "YIELD_DEC",
+      "selectDisplayName": "YIELD_DEC - YIELD_DEC (2 active)",
+      "rawRateFieldValidationInsts": [
+        {
+          "id": "QN8yB5t2ynhe9lZcjokDxY1f4MVtquz7",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "POSITIVE_DEC",
+          "definitionId": "1WcDITrFITcHquj5Z4kDxY1SBAZKD7E1",
+          "definitionName": "POSITIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        },
+        {
+          "id": "j0wfWmo2ZHMlJN3UCfkDxY1VgdKSUVyY",
+          "lockedForApproval": false,
+          "inactive": false,
+          "name": "NON_NEGATIVE_DEC",
+          "definitionId": "dMIdEMwOewtzNzOYOYkDxY1xQOMBCRk2",
+          "definitionName": "NON_NEGATIVE_DEC",
+          "jsonConfig": "{}",
+          "supportedType": "DECIMAL",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "dicDTO": {
+        "id": "8zoEHKlcRP4mYpwKaQkDxY10vFSDTkYM",
+        "lockedForApproval": false,
+        "inactive": false,
+        "name": "ASSET_TYPE",
+        "displayName": "Asset type",
+        "description": "asset type",
+        "dicType": "DIMENSION",
+        "type": "STRING",
+        "options": [
+          "BOND",
+          "EQUITY_FUTURES",
+          "EQUITY",
+          "EQUITY_OPTION",
+          "EQUITY_FUTURES_OPTION"
+        ],
+        "formattedOptions": "BOND, EQUITY_FUTURES, EQUITY, EQUITY_OPTION, EQUITY_FUTURES_OPTION"
+      },
+      "visible": true,
+      "visibilitySeq": 0,
+      "showUIFilter": false,
+      "caScaling": false,
+      "preSourceFieldCleansers": [],
+      "postSourceProcessors": [],
+      "rawRateFieldValidators": [],
+      "postAggregationFieldValidators": [],
+      "items": [],
+      "dicDTOId": "8zoEHKlcRP4mYpwKaQkDxY10vFSDTkYM",
+      "dicDTOName": "ASSET_TYPE",
+      "rawRateFieldValidationInsts": []
+    }
+  ]
+}

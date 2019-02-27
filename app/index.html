@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-us" data-ng-app="ratesUiApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title> Apiro Rates </title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+
+  <link rel="stylesheet" href="styles/zmain.css">
+
+  <link rel="shortcut icon" href="/images/apiro/favicon.png" type="image/png" >
+
+  <!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+  <!--<meta name="apple-mobile-web-app-status-bar-style" content="black">-->
+
+
+</head>
+<body class="fixed-header smart-style-4" ng-controller="globalController">
+<toaster-container toaster-options="{'position-class': 'toast-bottom-right'}"></toaster-container>
+
+<!--[if IE 8]>
+<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+<![endif]-->
+
+<div ng-show="$root.showView">
+  <logged-in-header></logged-in-header>
+  <left-panel></left-panel>
+</div>
+<div data-ng-view="" class="main-view-div view-animate"></div>
+<!--<div ng-if="!$root.showView">-->
+  <!--<div data-ng-view="" class="view-animate fixed-nav main-view" id="extr-page"></div>-->
+<!--</div>-->
+
+<script data-ace-base="bower_components/ace-builds/src-min-noconflict/" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+
+<!-- build:js({.tmp,app}) scripts/vendor.js -->
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/lodash/dist/lodash.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="scripts/smart/app.config.js"></script>
+<script src="scripts/smart/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+<script src="scripts/smart/bootstrap/bootstrap.min.js"></script>
+<script src="scripts/smart/notification/SmartNotification.min.js"></script>
+<script src="scripts/smart/plugin/sparkline/jquery.sparkline.min.js"></script>
+<script src="scripts/smart/plugin/jquery-validate/jquery.validate.min.js"></script>
+<script src="scripts/smart/smartwidgets/jarvis.widget.min.js"></script>
+<script src="external/powertip/jquery.powertip.min.js"></script>
+<script src="bower_components/momentjs/min/moment.min.js"></script>
+<script src="bower_components/angular-ui-ace/ui-ace.js"></script>
+<script src="bower_components/angularjs-toaster/toaster.js"></script>
+<script src="bower_components/ngprogress-lite/ngprogress-lite.min.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+<script src="bower_components/xtform/xtForm.js"></script>
+<script src="external/kendo/kendo.web.min.js"></script>
+<script src="scripts/smart/support-app.js"></script>
+<script src="scripts/smart/ng/ng.app.js"></script>
+<script src="scripts/smart/ng/ng.controllers.js"></script>
+<script src="scripts/smart/ng/ng.directives.js"></script>
+<script src="scripts/smart/ng/plunker.js"></script>
+<script src="external/highcharts/highcharts.min.js"></script>
+<script src="external/highcharts/dark-blue.js"></script>
+
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/config/config.js"></script>
+
+<script src="scripts/services/loginService.js"></script>
+<script src="scripts/services/configService.js"></script>
+<script src="scripts/services/configData.js"></script>
+<script src="scripts/services/constantsService.js"></script>
+<script src="scripts/services/storageService.js"></script>
+<script src="scripts/services/demoService.js"></script>
+<script src="scripts/services/rawService.js"></script>
+<script src="scripts/services/aggregatedService.js"></script>
+<script src="scripts/services/dataDictionaryService.js"></script>
+<script src="scripts/services/dataProviderService.js"></script>
+<script src="scripts/services/calendarService.js"></script>
+<script src="scripts/services/scriptLanguageService.js"></script>
+<script src="scripts/services/marketService.js"></script>
+<script src="scripts/services/taskTypeService.js"></script>
+<script src="scripts/services/eventTypeService.js"></script>
+<script src="scripts/services/feedImportService.js"></script>
+<script src="scripts/services/notificationService.js"></script>
+<script src="scripts/services/socketWatcherService.js"></script>
+<script src="scripts/services/assetClassService.js"></script>
+<script src="scripts/services/userService.js"></script>
+<script src="scripts/services/rateDefinitionService.js"></script>
+<script src="scripts/services/rateSchemaService.js"></script>
+<script src="scripts/services/postAggValidationService.js"></script>
+<script src="scripts/services/rawValidationService.js"></script>
+<script src="scripts/services/violationsTestAdminService.js"></script>
+<script src="scripts/services/historicalService.js"></script>
+<script src="scripts/services/crossRateCollectionService.js"></script>
+<script src="scripts/services/auditService.js"></script>
+<script src="scripts/services/ratesCollectionService.js"></script>
+<script src="scripts/services/ratesDistributionService.js"></script>
+<script src="scripts/services/calendarService.js"></script>
+<script src="scripts/services/statusService.js"></script>
+<script src="scripts/services/systemStatusService.js"></script>
+<script src="scripts/services/distributionService.js"></script>
+<script src="scripts/services/crossRateDistributionService.js"></script>
+<script src="scripts/services/runtimeCrossRatesDistributionService.js"></script>
+<script src="scripts/services/graphStatsService.js"></script>
+<script src="scripts/services/symbolAutocompleteService.js"></script>
+<script src="scripts/services/approvalsService.js"></script>
+<script src="scripts/services/corporateActionsService.js"></script>
+<script src="scripts/services/lookupService.js"></script>
+<script src="scripts/services/crossRateHistoricalService.js"></script>
+<script src="scripts/services/logMessageService.js"></script>
+<script src="scripts/services/scriptableTypeService.js"></script>
+<script src="scripts/services/scriptableTypesConstantsService.js"></script>
+<script src="scripts/services/serviceImplsService.js"></script>
+<script src="scripts/services/validationService.js"></script>
+<script src="scripts/services/setup/logManagementService.js"></script>
+
+
+
+<script src="scripts/controllers/globalController.js"></script>
+<script src="scripts/controllers/loginController.js"></script>
+<script src="scripts/controllers/logoutController.js"></script>
+<script src="scripts/controllers/dashboardController.js"></script>
+
+<script src="scripts/controllers/sources/sourceController.js"></script>
+<script src="scripts/controllers/sources/rawController.js"></script>
+<script src="scripts/controllers/sources/aggregatedController.js"></script>
+<script src="scripts/controllers/sources/historicalController.js"></script>
+<script src="scripts/controllers/sources/dropSourceController.js"></script>
+<script src="scripts/controllers/sources/feedInstanceController.js"></script>
+<script src="scripts/controllers/sources/rateDefImportController.js"></script>
+<script src="scripts/controllers/sources/ratesCollectionController.js"></script>
+<script src="scripts/controllers/sources/ratesDistributionController.js"></script>
+<script src="scripts/controllers/sources/rateAdjustmentController.js"></script>
+
+<script src="scripts/controllers/setup/rates/dataDictionary/dimensionsController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/attributesController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/propertiesController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/editDataDictionaryController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/dataDictionaryModalController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/schemaDefinitionsController.js"></script>
+
+<script src="scripts/controllers/setup/rates/dataDictionary/editSchemaDefinitionDataDictionaryController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/editSchemaDefinitionPreSourceFieldCleanserController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/editSchemaDefinitionPostSourceProcessorController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/editSchemaDefinitionRawFieldValidationController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/editSchemaDefinitionPostAggregationFieldValidationController.js"></script>
+<script src="scripts/controllers/setup/rates/dataDictionary/editRateDefinitionController.js"></script>
+<script src="scripts/helpers/schemaDefinitionHelper.js"></script>
+
+<script src="scripts/controllers/setup/rates/dataDictionary/dataDictionaryItemModalController.js"></script>
+
+
+<script src="scripts/controllers/configuration/raw/rawValidationController.js"></script>
+<script src="scripts/controllers/configuration/raw/rawPreSourceCleanseController.js"></script>
+<script src="scripts/controllers/configuration/raw/rawPostSourceProcessController.js"></script>
+
+
+<script src="scripts/controllers/configuration/aggregated/postAggregationValidationController.js"></script>
+<script src="scripts/controllers/configuration/aggregated/fieldAggregationAlgorithmController.js"></script>
+
+
+<script src="scripts/controllers/setup/rates/riskFactors/crossRateCollectionController.js"></script>
+<script src="scripts/controllers/setup/rates/riskFactors/editCrossRateCollectionController.js"></script>
+<script src="scripts/controllers/setup/rates/riskFactors/distributionCrossDefsController.js"></script>
+<script src="scripts/controllers/setup/rates/riskFactors/editDistributionCrossDefsController.js"></script>
+<script src="scripts/controllers/setup/rates/riskFactors/crossRateDistributionFormatterController.js"></script>
+
+
+<script src="scripts/controllers/configuration/linear/rateCollectionsController.js"></script>
+<script src="scripts/controllers/configuration/linear/distributionDefsController.js"></script>
+<script src="scripts/controllers/configuration/linear/rateDistributionFormatterController.js"></script>
+<script src="scripts/controllers/configuration/linear/editDistributionDefsController.js"></script>
+
+
+<script src="scripts/controllers/setup/rates/dataDictionary/rateDefinitionController.js"></script>
+<script src="scripts/controllers/setup/logManagementController.js"></script>
+
+<script src="scripts/controllers/configuration/servicesController.js"></script>
+<script src="scripts/controllers/configuration/scriptable/scriptableHandlerController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/rawImportServicesController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/aggregationServicesController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/authenticationServiceImplController.js"></script>
+<!--<script src="scripts/controllers/configuration/scriptableManager/ca.js"></script>-->
+<script src="scripts/controllers/configuration/scriptableManager/authorizationServicesController.js"></script>
+<script src="scripts/controllers/setup/rates/riskFactors/crossRateDistProcServiceController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/distributionProcessServicesController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/eventProcessorServicesController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/corporateActionsProcessServicesController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/lifeCycleServicesController.js"></script>
+<script src="scripts/controllers/configuration/scriptableManager/rateDefinitionImportServicesController.js"></script>
+
+
+<script src="scripts/controllers/configuration/feeds/dataFeedsController.js"></script>
+<script src="scripts/controllers/configuration/feeds/rateDefImporterController.js"></script>
+
+<script src="scripts/controllers/setup/users/userController.js"></script>
+<script src="scripts/controllers/setup/users/editUserController.js"></script>
+<script src="scripts/controllers/configuration/system/userModalController.js"></script>
+<script src="scripts/controllers/configuration/system/calendarController.js"></script>
+<script src="scripts/controllers/configuration/system/editCalendarController.js"></script>
+
+
+<script src="scripts/controllers/setup/dataSinkController.js"></script>
+
+<script src="scripts/controllers/configuration/marketController.js"></script>
+<script src="scripts/controllers/configuration/scriptLanguageController.js"></script>
+<script src="scripts/controllers/configuration/lifecycle/postCloseProcessController.js"></script>
+<script src="scripts/controllers/configuration/events/eventListenerController.js"></script>
+<script src="scripts/controllers/configuration/events/scheduledScriptController.js"></script>
+<script src="scripts/controllers/configuration/events/eventTypeController.js"></script>
+<script src="scripts/controllers/configuration/taskTypeController.js"></script>
+<script src="scripts/controllers/configuration/system/calendarController.js"></script>
+<script src="scripts/controllers/configuration/dataProvider/dataProviderController.js"></script>
+<script src="scripts/controllers/configuration/testViolationsAdminController.js"></script>
+<script src="scripts/controllers/configuration/corporateActionsController.js"></script>
+<script src="scripts/controllers/configuration/corporateActionsModalController.js"></script>
+
+<script src="scripts/controllers/configuration/scheduleController.js"></script>
+<script src="scripts/controllers/configuration/viewRateSchemaDefModalController.js"></script>
+
+<script src="scripts/controllers/logs/logMessageController.js"></script>
+<script src="scripts/controllers/audit/taskAuditController.js"></script>
+<script src="scripts/controllers/audit/entityAuditController.js"></script>
+<script src="scripts/controllers/audit/detailedAuditController.js"></script>
+<script src="scripts/controllers/approvals/pendingApprovalsController.js"></script>
+<script src="scripts/controllers/approvals/acceptedApprovalsController.js"></script>
+<script src="scripts/controllers/approvals/rejectedApprovalsController.js"></script>
+<script src="scripts/controllers/approvals/aggregatedApprovalController.js"></script>
+<script src="scripts/controllers/system/systemStatusController.js"></script>
+<script src="scripts/controllers/sources/crossRateHistoricalController.js"></script>
+<script src="scripts/controllers/sources/runTimeCrossRatesDistributionController.js"></script>
+
+<script src="scripts/directives/loggedInHeader.js"></script>
+<script src="scripts/directives/runtimeNav.js"></script>
+<script src="scripts/directives/leftPanel.js"></script>
+
+<script src="scripts/directives/components/comboBoxDirective.js"></script>
+
+<script src="scripts/directives/components/contextDirective.js"></script>
+<script src="scripts/directives/components/notallow.js"></script>
+<script src="scripts/directives/components/capitalize.js"></script>
+<script src="scripts/directives/sourcesNavbarDirective.js"></script>
+<script src="scripts/directives/approvalsNavbarDirective.js"></script>
+<script src="scripts/directives/dictionaryNavbarDirective.js"></script>
+
+<script src="scripts/directives/feedsNavbarDirective.js"></script>
+<script src="scripts/directives/postAggValidationNavbarDirective.js"></script>
+<script src="scripts/directives/rawValidationNavbarDirective.js"></script>
+<script src="scripts/directives/rightClick.js"></script>
+<script src="scripts/directives/grids/ratesGrid.js"></script>
+
+<script src="scripts/directives/auditNavbar.js"></script>
+<script src="scripts/directives/grids/entityAuditGrid.js"></script>
+<script src="scripts/directives/grids/detailedAuditGrid.js"></script>
+<script src="scripts/directives/grids/rateDefsGrid.js"></script>
+<script src="scripts/directives/grids/ratesDistributionGrid.js"></script>
+<script src="scripts/directives/status/statusBar.js"></script>
+<script src="scripts/directives/status/errorsDisplay.js"></script>
+<script src="scripts/directives/status/dashboardStatus.js"></script>
+<script src="scripts/directives/status/dashboardLiveChart.js"></script>
+<script src="scripts/directives/status/headerCharts.js"></script>
+
+<script src="scripts/directives/auditDetail.js"></script>
+<script src="scripts/directives/grids/corporateActionsGrid.js"></script>
+<script src="scripts/directives/grids/crossRateHistoricalGrid.js"></script>
+<script src="scripts/directives/grids/simpleGrid.js"></script>
+<script src="scripts/directives/grids/ratesDrilldownGrid.js"></script>
+<script src="scripts/directives/grids/schemaDefinitionDictionaryGrid.js"></script>
+<script src="scripts/directives/grids/schemaDefinitionPreSourceFieldCleanserGrid.js"></script>
+<script src="scripts/directives/grids/schemaOptionSelectorGrid.js"></script>
+<script src="scripts/directives/grids/businessCalendarGrid.js"></script>
+<script src="scripts/directives/grids/editCrossRateCollectionGrid.js"></script>
+<script src="scripts/directives/grids/taskAuditGrid.js"></script>
+<script src="scripts/directives/grids/logManagementGrid.js"></script>
+
+
+<script src="scripts/directives/schemaDefinitionsNavTabs.js"></script>
+<script src="scripts/directives/scriptable.js"></script>
+<script src="scripts/directives/manageScriptable.js"></script>
+<script src="scripts/directives/configuration/scriptable/instance/fieldAggregationAlgorithmDefinitionForm.js"></script>
+<script src="scripts/directives/configuration/scriptable/instance/feedInstanceForm.js"></script>
+<script src="scripts/directives/configuration/scriptable/instance/eventListenerInstanceForm.js"></script>
+<script src="scripts/directives/configuration/scriptable/instance/scheduledScriptInstanceForm.js"></script>
+<script src="scripts/directives/configuration/scriptable/instance/postCloseProcessInstanceForm.js"></script>
+<script src="scripts/directives/configuration/scriptable/instance/rateDefImporterInstanceForm.js"></script>
+<script src="scripts/directives/configuration/scriptable/instance/linearCollectionsInstanceForm.js"></script>
+<script src="scripts/directives/configuration/scriptable/editScriptableInstance.js"></script>
+
+<script src="scripts/directives/cronField.js"></script>
+<script src="scripts/directives/rates/ratesDrillDown.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>

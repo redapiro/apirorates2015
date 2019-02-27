@@ -1,0 +1,37 @@
+<div ng-controller="ratesDistributionController">
+  <span navbar></span>
+  <div class="main-container container-fluid">
+    <span sidenav></span>
+
+    <div class="main-content">
+      <div class="page-content">
+        <h3 class="header smaller lighter blue">
+        Rate Distribution
+        </h3>
+        <div class="row-fluid">
+          <div class="span12">
+            <!--PAGE CONTENT BEGINS-->
+            <div class="row-fluid">
+              <div class="span12">
+                <div simple-grid columns="columns"
+                     datasource-url = "datasourceUrl"
+                     grid-title="'Distributions'"
+                     refresh-trigger = "date"
+                     action-columns="extraColumnsToAdd"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="space-6"></div>-->
+          <div class="hr hr32 hr-dotted"></div>
+          <!--PAGE CONTENT ENDS-->
+        </div>
+        <!--/.span-->
+      </div>
+      <!--/.row-fluid-->
+    </div>
+    <!--/.page-content-->
+  </div>
+</div>
+
+

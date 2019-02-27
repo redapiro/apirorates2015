@@ -1,0 +1,23 @@
+
+  <rates-drill-down visible="showDetails" rate-type="tableType" rate-id-holder="rateIdHolder"></rates-drill-down>
+  <div class="widget-body-toolbar" ng-show="!displayDateCriteria">
+    <form name="form" class="smart-form no-bottom-margin" novalidate="novalidate">
+        <div ng-if="!displayDateCriteria">
+          <status-bar type="tableType"></status-bar>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" style="margin-top: -8px">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" aria-haspopup="true" aria-expanded="true"> Imports <b class="caret"></b> </a>
+              <ul class="dropdown-menu">
+                <li >
+                  <a href="javascript:void(0);" ng-click="importFeedDialog()">Import Feeds</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0);" ng-click="importAll()">Import All</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+    </form>
+  </div>
+  <div id="grid" class="grid simple-grid grid-wrapper"></div>

@@ -1,0 +1,337 @@
+<aside id="left-panel" style="min-height: 1446px;" class="aside">
+
+<!--<a class="menu-toggler" id="menu-toggler" href="#">-->
+<!--<span class="menu-text"></span>-->
+<!--</a>-->
+
+<!--<div ng-show="isSources() || isAudit() || isRateCollections() || isRateDistributions() || isApprovals()">-->
+<!--&lt;!&ndash;Open Market Opts-list&ndash;&gt;-->
+<!--<ul class="nav nav-list">-->
+<!--<li ng-class="{active: isSources()}">-->
+<!--<a href="#/sources">-->
+<!--<i class="icon-bar-chart"></i>-->
+<!--<span class="menu-text">Current Rates</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li ng-class="{active: isAudit()}">-->
+<!--<a href="#/audit">-->
+<!--<i class="icon-edit"></i>-->
+<!--<span class="menu-text">Audit</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li ng-class="{active: isApprovals()}">-->
+<!--<a href="#/approvals">-->
+<!--<i class="icon-list-alt"></i>-->
+<!--<span class="menu-text">Approvals</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li ng-class="{active: isRateCollections()}">-->
+<!--<a href="#/rateCollection">-->
+<!--<i class="icon-cloud"></i>-->
+<!--<span class="menu-text">Rate Collections</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li ng-class="{active: isRateDistributions()}">-->
+<!--<a href="#/rateDistribution">-->
+<!--<i class="icon-random"></i>-->
+<!--<span class="menu-text">Rate Distribution</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<nav>
+<!--Configuration-list-->
+<ul>
+  <!-- Rate Definitions -->
+  <li>
+    <a ng-click="setExpanded('rates/definitions')">
+      <i class="fa fa-lg fa-fw fa-table"></i>
+      <span class="menu-item-parent">Rate Definitions</span>
+      <b class="collapse-sign"><em class="fa fa-collapse-o"></em>
+      </b>
+    </a>
+    <ul ng-show="isExpanded('rates/definitions')" style="display: block">
+      <li ng-class="{'active': isConfiguration('rates/definitions/dimensions')||isConfiguration('rates/definitions/attributes')||isConfiguration('rates/definitions/properties')}">
+        <a href="#/configuration/rates/definitions/dimensions">Data Dictionary
+        </a>
+      </li>
+      <li ng-class="{'active': isConfiguration('rates/definitions/schemaDefinitions')}">
+        <a href="#/configuration/rates/definitions/schemaDefinitions">
+          <span class="menu-text"> Schema Definitions </span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+<!-- Raw Menu Heirarchy -->
+  <li>
+    <a ng-click="setExpanded('rates/raw')">
+      <i class="fa fa-lg fa-fw fa-table"></i>
+      <span class="menu-item-parent">Raw rates</span>
+      <b class="collapse-sign"><em class="fa fa-collapse-o"></em>
+      </b>
+    </a>
+    <ul ng-show="isExpanded('rates/raw')" style="display: block">
+      <li ng-class="{active: isConfiguration('rates/raw/preSourceCleanse')}">
+        <a href="#/configuration/rates/raw/preSourceCleanse">Pre-Source cleanse
+        </a>
+      </li>
+      <li ng-class="{'active': isConfiguration('rates/raw/postSourceProcess')}">
+        <a href="#/configuration/rates/raw/postSourceProcess">
+          <span class="menu-text">Post-Source cleanse</span>
+        </a>
+      </li>
+      <li ng-class="{'active': isConfiguration('rates/raw/rawValidation')}">
+        <a href="#/configuration/rates/raw/rawValidation">
+          <span class="menu-text">Raw Field Validation</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Agg Menu Heirarchy -->
+  <li>
+    <a ng-click="setExpanded('rates/aggregated')">
+      <i class="fa fa-lg fa-fw fa-table"></i>
+      <span class="menu-item-parent">Aggregated rates</span>
+      <b class="collapse-sign"><em class="fa fa-collapse-o"></em>
+      </b>
+    </a>
+    <ul ng-show="isExpanded('rates/aggregated')" style="display: block">
+      <li ng-class="{active: isConfiguration('rates/aggregated/fieldAggregationAlgorithm')}">
+        <a href="#/configuration/rates/aggregated/fieldAggregationAlgorithm">Field Aggregation Algorithm
+        </a>
+      </li>
+      <li ng-class="{'active': isConfiguration('rates/aggregated/postAggValidation')}">
+        <a href="#/configuration/rates/aggregated/postAggValidation">
+          <span class="menu-text">Post Aggregation Validation</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <!-- Cross Rate Heirarchy -->
+  <li>
+    <a ng-click="setExpanded('rates/crossrate')">
+      <i class="fa fa-lg fa-fw fa-table"></i>
+      <span class="menu-item-parent">Cross rates</span>
+      <b class="collapse-sign"><em class="fa fa-collapse-o"></em>
+      </b>
+    </a>
+    <ul ng-show="isExpanded('rates/crossrate')" style="display: block">
+      <li ng-class="{active: isConfiguration('rates/crossrate/distributions')}">
+        <a href="#/configuration/rates/crossrate/distributions">Distributions
+        </a>
+      </li>
+      <li ng-class="{'active': isConfiguration('rates/crossrate/distributionFormatter')}">
+        <a href="#/configuration/rates/crossrate/distributionFormatter">
+          <span class="menu-text">Distribution Formatter</span>
+        </a>
+      </li>
+      <li ng-class="{'active': isConfiguration('rates/crossrate/distProcServiceImpl')}">
+        <a href="#/configuration/rates/crossrate/distProcServiceImpl">
+          <span class="menu-text">Distribution Algorithm</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+x
+
+<!--<!-- Linear Rates options -->-->
+<!--<li ng-class="{'active open': isConfiguration('rates/linear')}">-->
+  <!--<a href="" ng-click="setExpanded('rates/linear')">-->
+    <!--<i class="icon-book"></i>-->
+    <!--<span class="menu-text">Linear rates</span>-->
+    <!--<b class="arrow icon-angle-down"></b>-->
+
+  <!--</a>-->
+  <!--<ul class="submenu" ng-show="isExpanded('rates/linear')">-->
+    <!--<li ng-class="{active: isConfiguration('rates/linear/collections')}">-->
+      <!--<a href="#/configuration/rates/linear/collections">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Collections </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('rates/linear/distributions')}">-->
+      <!--<a href="#/configuration/rates/linear/distributions">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text">  Distributions </span>-->
+      <!--</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+
+<!--<!-- Core Services -->-->
+<!--<li ng-class="{'active open': isConfiguration('services')}">-->
+  <!--<a href="" ng-click="setExpanded('services')">-->
+    <!--<i class="icon-gears"></i>-->
+    <!--<span class="menu-text">Core Services</span>-->
+    <!--<b class="arrow icon-angle-down"></b>-->
+
+  <!--</a>-->
+  <!--<ul class="submenu" ng-show="isExpanded('services')">-->
+    <!--<li ng-class="{active: isConfiguration('services/serviceImpls')}">-->
+      <!--<a href="#/configuration/services/serviceImpls">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Services </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/rawImportImpl')}">-->
+      <!--<a href="#/configuration/services/rawImportImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Raw Import Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/aggregationServiceImpl')}">-->
+      <!--<a href="#/configuration/services/aggregationServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Aggregation Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/rateDefImportServiceImpl')}">-->
+      <!--<a href="#/configuration/services/rateDefImportServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Rate Definition Import Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/authenticationServiceImpl')}">-->
+      <!--<a href="#/configuration/services/authenticationServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Authentication Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/authorizationServiceImpl')}">-->
+      <!--<a href="#/configuration/services/authorizationServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Authorization Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/eventProcessorServiceImpl')}">-->
+      <!--<a href="#/configuration/services/eventProcessorServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Event Processor Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/distributionProcessServiceImpl')}">-->
+      <!--<a href="#/configuration/services/distributionProcessServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Distribution Process Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/lifeCycleServiceImpl')}">-->
+      <!--<a href="#/configuration/services/lifeCycleServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Life Cycle Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('services/corpActionProcServiceImpl')}">-->
+      <!--<a href="#/configuration/services/corpActionProcServiceImpl">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Corporate Actions Process Service </span>-->
+      <!--</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+
+<!--<!-- Feeds -->-->
+<!--<li ng-class="{'active open': isConfiguration('feeds')}">-->
+  <!--<a href="" ng-click="setExpanded('feeds')">-->
+    <!--<i class="icon-list"></i>-->
+    <!--<span class="menu-text">Feeds</span>-->
+    <!--<b class="arrow icon-angle-down"></b>-->
+
+  <!--</a>-->
+  <!--<ul class="submenu" ng-show="isExpanded('feeds')">-->
+    <!--<li ng-class="{active: isConfiguration('feeds/dataFeeds')}">-->
+      <!--<a href="#/configuration/feeds/dataFeeds">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Data Feeds </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('feeds/rateDefImport')}">-->
+      <!--<a href="#/configuration/feeds/rateDefImport">-->
+        <!--<i class="icon-double-angle-right"></i>-->
+        <!--<span class="menu-text"> Rate Definitions Import </span>-->
+      <!--</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+
+<!--<!-- System -->-->
+<!--<li ng-class="{'active open': isConfiguration('system')}">-->
+  <!--<a href="" ng-click="setExpanded('system')">-->
+    <!--<i class="icon-terminal"></i>-->
+    <!--<span class="menu-text">System</span>-->
+    <!--<b class="arrow icon-angle-down"></b>-->
+
+  <!--</a>-->
+  <!--<ul class="submenu" ng-show="isExpanded('system')">-->
+    <!--<li ng-class="{active: isConfiguration('system/logs')}">-->
+      <!--<a href="#/configuration/system/logs">-->
+        <!--<i class="icon-list"></i>-->
+        <!--<span class="menu-text"> Logs </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="#/configuration/logs">-->
+        <!--<i class="icon-list"></i>-->
+        <!--<span class="menu-text"> Log Management </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('system/calendar')}">-->
+      <!--<a href="#/configuration/system/calendar">-->
+        <!--<i class="icon-calendar"></i>-->
+        <!--<span class="menu-text"> Holiday Calendar </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('system/user')}">-->
+      <!--<a href="#/configuration/system/user">-->
+        <!--<i class="icon-user"></i>-->
+        <!--<span class="menu-text"> User Administration </span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{active: isConfiguration('system/dataSink')}">-->
+      <!--<a href="#/configuration/system/dataSink">-->
+        <!--<i class="icon-exclamation-sign"></i>-->
+        <!--<span class="menu-text"> Data Sinks </span>-->
+      <!--</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+
+<!--<li ng-class="{active: isConfiguration('eventListener')}">-->
+  <!--<a href="#/configuration/eventListener">-->
+    <!--<i class="icon-exclamation-sign"></i>-->
+    <!--<span class="menu-text"> Event Listeners </span>-->
+  <!--</a>-->
+<!--</li>-->
+<!--<li ng-class="{active: isConfiguration('corporateActions')}">-->
+  <!--<a href="#/configuration/corporateActions">-->
+    <!--<i class="icon-cogs"></i>-->
+    <!--<span class="menu-text"> Corporate Actions </span>-->
+  <!--</a>-->
+<!--</li>-->
+
+<!--<li ng-class="{active: isConfiguration('dataProvider')}">-->
+  <!--<a href="#/configuration/dataProvider">-->
+    <!--<i class="icon-exclamation-sign"></i>-->
+    <!--<span class="menu-text"> Data Provider </span>-->
+  <!--</a>-->
+<!--</li>-->
+<!--<!--<li >-->-->
+<!--<!--<a href="#/configuration/testViolationsAdmin">-->-->
+<!--<!--<i class="icon-exclamation-sign"></i>-->-->
+<!--<!--<span class="menu-text"> Data Import </span>-->-->
+<!--<!--</a>-->-->
+<!--<!--</li>-->-->
+
+<!--<li ng-class="{active: isConfiguration('testViolationsAdmin')}">-->
+  <!--<a href="#/configuration/testViolationsAdmin">-->
+    <!--<i class="icon-exclamation-sign"></i>-->
+    <!--<span class="menu-text"> Test Space </span>-->
+  <!--</a>-->
+<!--</li>-->
+</ul>
+</nav>
+</aside>

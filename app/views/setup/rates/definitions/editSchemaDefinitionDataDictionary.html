@@ -1,0 +1,72 @@
+<div ng-controller="editSchemaDefinitionDataDictionaryController" class="animate-show">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div>
+            <div class="jarviswidget jarviswidget-sortable animate-show" data-widget-colorbutton="false"
+                 data-widget-editbutton="false" role="widget" style="">
+              <div schema-definitions-nav-tabs></div>
+
+              <div role="content"  class="animate-show" ng-show="schemaDefinition">
+                <div class="jarviswidget-editbox">
+                </div>
+                <div class="widget-body">
+
+                  <form class="form-horizontal" novalidate name="rateSchemaDefForm" xt-form>
+                    <fieldset>
+                      <div class="form-group"
+                           data-ng-class="{'has-error': rateSchemaDefForm.title.$dirty && rateSchemaDefForm.title.$invalid}">
+                        <label class="col-md-2 control-label">Name</label>
+
+                        <div class="col-md-6">
+                          <input required name="title" class="form-control input-sm" type="text" autocomplete="off"
+                                 data-ng-model="schemaDefinition.name" xt-validate>
+                        </div>
+                      </div>
+
+                      <h5>Dictionary items</h5>
+
+                      <div schema-definition-dictionary-grid
+                           paginated="false"
+                           pixel-height="400"
+                           dictionary-items="schemaDefinition.dictionaryItems"
+                           reference-data="referenceData"
+                           action-columns="innerExtraColumnsToAdd"
+                           refresh-trigger="refreshView"
+                           modified-notifier="modified"
+                           toolbar-action="innerGridAction">
+                      </div>
+                      <div errors-display class="alert alert-danger animated fadeIn"
+                           error-messages="innerErrorMessages"></div>
+
+                      <!-- Errors -->
+                      <div errors-display class="alert alert-danger animated fadeIn"
+                           error-messages="errorMessages"></div>
+                      <div class="form-actions center">
+                        <button ng-click="doSaveOp()" ng-disabled="!(rateSchemaDefForm.$valid)"
+                                class="btn btn-small btn-primary">
+                          <i class="fa fa-save"></i>
+                          Save
+                          <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                        </button>
+                        <button ng-click="doCancelOp()" class="btn btn-small btn-danger">
+                          Cancel
+                          <i class="icon-ban-circle icon-on-right bigger-110"></i>
+                        </button>
+
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!--FORM ENDS-->
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>

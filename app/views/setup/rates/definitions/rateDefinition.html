@@ -1,0 +1,212 @@
+<div ng-controller="rateDefinitionController">
+  <div id="main" role="main">
+    <!-- RIBBON -->
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <!-- END RIBBON -->
+    <div id="content">
+      <section id="widget-grid">
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div simple-grid
+               columns="columns"
+               datasource-url="datasourceUrl"
+               action-columns="extraColumnsToAdd"
+               refresh-trigger="refreshView"
+               toolbar-action="gridAction">
+          </div>
+        </article>
+      </section>
+    </div>
+    <!--/.span-->
+  </div>
+  <!--/.row-fluid-->
+</div>
+<!--/.page-content-->
+
+<div class="main-content" ng-show="editMode">
+  <div class="page-content">
+    <div class="row-fluid">
+      <div class="span12">
+        <!--PAGE CONTENT BEGINS-->
+        <div class="row-fluid">
+          <div class="span12">
+
+
+            <div class="span12" ng-if="instance">
+              <div class="widget-box">
+                <!--<div class="widget-body">-->
+                <form class="form-horizontal" novalidate name="scriptForm">
+                  <div class="row-fluid">
+                    <div class="span4">
+
+                      <div class="control-group"
+                           ng-class="{'error': scriptForm.market.$dirty && scriptForm.market.$invalid}">
+                        <label class="control-label" for="market">Market:</label>
+
+                        <div class="controls">
+                          <select id="market" type="hidden" ng-model="instance.marketId" data-ui-select2
+                                  name="market"
+                                  placeholder="Select"
+                                  ng-change="onMarketChanged(instance.marketId)"
+                                  required>
+                            <option value=""></option>
+                            <option ng-repeat="market in references['markets']" value="{{market.id}}">
+                              {{market.name}}
+                            </option>
+                          </select>
+                              <span ng-show="scriptForm.market.$dirty && scriptForm.market.$invalid">
+                                <i class="icon-remove-sign"></i>
+                                <span class="help-inline">This is required.</span>
+                              </span>
+                        </div>
+                      </div>
+
+                      <div class="control-group"
+                           ng-class="{'error': scriptForm.symbol.$dirty && scriptForm.symbol.$invalid}">
+                        <label class="control-label" for="symbol">Symbol:</label>
+
+                        <div class="controls">
+                          <input id="symbol" type="hidden" ng-model="selectedRateDefinition"
+                                 data-ui-select2="rateDefinitionSelect" ng-disabled="!instance.marketId"
+                                 name="symbol"
+                                 ng-change="onSymbolChanged(selectedRateDefinition)"
+                                 placeholder="Select" required>
+                              <span ng-show="scriptForm.symbol.$dirty && scriptForm.symbol.$invalid">
+                                  <i class="icon-remove-sign"></i>
+                                  <span class="help-inline">This is required.</span>
+                                </span>
+                        </div>
+                      </div>
+
+                      <div class="control-group"
+                           ng-class="{'error': scriptForm.schema.$dirty && scriptForm.schema.$invalid}">
+                        <label class="control-label" for="schema">Rate Schema Definition:</label>
+
+                        <div class="controls">
+                          <select type="hidden" ng-model="instance.schemaId" data-ui-select2
+                                  name="schema"
+                                  ng-change="onRateSchemaDefinitionChanged(instance.schemaId)"
+                                  placeholder="Select" required>
+                            <option value=""></option>
+                            <option ng-repeat="schema in references['rateSchemaDefs']" value="{{schema.id}}">
+                              {{schema.name}}
+                            </option>
+                          </select>
+                <span ng-show="scriptForm.schema.$dirty && scriptForm.schema.$invalid">
+                  <i class="icon-remove-sign"></i>
+                  <span class="help-inline">This is required.</span>
+                </span>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label>Rate Definition Entry Items:</label>
+
+                        <div class="controls">
+                          <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                              <th class="span4">DataDictionary</th>
+                              <th>TypedValue</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in instance.rateDefEntryItems.list">
+                              <td>
+                                {{item.dictionaryName}}
+                              </td>
+                              <td ng-show="item.dicType == 'PROPERTY'">
+                                <input ng-model="item.typedValue" type="text" class="form-control"/>
+                              </td>
+                              <td ng-show="item.dicType == 'DIMENSION'">
+                                <select type="hidden" ng-model="item.typedValue" data-ui-select2
+                                        name="typedValue"
+                                        placeholder="Select"
+                                        required>
+                                  <option value=""></option>
+                                  <option ng-repeat="option in item.options">{{option}}</option>
+                                </select>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label">Attributes:</label>
+
+                        <div class="controls">
+                          <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                              <th class="span4">DataDictionary</th>
+                              <th>DataType</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in instance.attributes">
+                              <td>
+                                {{item.displayName}}
+                              </td>
+                              <td>
+                                <input ng-model="item.type" type="text" class="form-control" readonly/>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="formattedMetaData">Meta Data:</label>
+
+                        <div class="controls">
+                          <textarea class="span12" name="formattedMetaData" ng-model="instance.formattedMetaData"
+                                    rows="10"></textarea>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" class="animated fadeIn" ng-show="serverValidationError">
+                    Validation failures occurred:
+                    <ul>
+                      <li ng-repeat="validationMessage in serverValidationError.errorMessages">
+                        {{validationMessage.message}}
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="form-actions center">
+                    <button ng-click="doSaveOp()" ng-disabled="!scriptForm.$valid"
+                            class="btn btn-small btn-success">
+                      Save
+                      <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                    </button>
+
+                    <button ng-click="doCancelOp()" class="btn btn-small btn-danger">
+                      Cancel
+                      <i class="icon-ban-circle icon-on-right bigger-110"></i>
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <!--<div class="space-6"></div>-->
+      <div class="hr hr32 hr-dotted"></div>
+      <!--PAGE CONTENT ENDS-->
+    </div>
+    <!--/.span-->
+  </div>
+  <!--/.row-fluid-->
+</div>
+<!--/.page-content-->
+
+
+</div>
+</div>

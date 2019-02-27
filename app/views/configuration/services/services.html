@@ -1,0 +1,208 @@
+<div ng-controller="servicesController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div class="widget-body">
+            <div class="jarviswidget jarviswidget-sortable animate-show" data-widget-colorbutton="false"
+                 data-widget-editbutton="false" role="widget" style="" ng-show="ready">
+              <header role="heading">
+                <div class="jarviswidget-ctrls" role="menu">
+                </div>
+                <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+
+                <h2>Service Implementation Setup</h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+              </header>
+
+              <div role="content">
+                <div class="jarviswidget-editbox">
+                </div>
+                <div class="widget-body">
+                  <form class="form-horizontal" novalidate name="scriptForm" xt-form>
+                    <fieldset>
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Raw Import Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.rawImportImplId"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.rawImportImplId, 'RawImportImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.RawImportImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Aggregation Implementation
+                          Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.aggregationImplId"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.aggregationImplId, 'AggregationImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.AggregationImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Authentication Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.authenticationServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.authenticationServiceImpl,'AuthenticationService')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.AuthenticationService | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Authorization Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.authorizationServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.authorizationServiceImpl, 'AuthorizationServiceImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.AuthorizationServiceImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Cross Rate Distribution Process Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.crossRateDistributionProcessServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.crossRateDistributionProcessServiceImpl, 'XRateDistProcServiceImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.XRateDistProcServiceImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Distribution Process Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.distributionProcessServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.distributionProcessServiceImpl,'DistProcServiceImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.DistProcServiceImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Event Processor Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.eventProcessorServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.eventProcessorServiceImpl,'EventProcessorServiceImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.EventProcessorServiceImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Corporate Action Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.corporateActionServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.corporateActionServiceImpl,'CorporateActionServiceImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.CorporateActionServiceImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Life Cycle Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.lifeCycleServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.lifeCycleServiceImpl,'LifeCycleServiceImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.LifeCycleServiceImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="ready">
+                        <label class="col-md-4 control-label">Rate Definition Import Service</label>
+
+                        <div class="col-md-6">
+                          <ui-select name="distFormatter" data-ng-model="instance.rateImportServiceImpl"
+                                     theme="selectize"
+                                     data-ng-required="true">
+                            <ui-select-match placeholder="Choose">{{getServiceName(instance.rateImportServiceImpl,'rateDefImportServiceImpl')}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="service.id as service in references.rateDefImportServiceImpl | propsFilter: {name: $select.search}">
+                              <div data-ng-bind-html="service.name"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      </fieldset>
+
+                    <div class="form-actions center">
+                      <button ng-click="doSaveOp()" ng-disabled="!scriptForm.$valid"
+                              class="btn btn-small btn-primary">
+                        <i class="fa fa-save"></i>
+                        Save
+                        <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>

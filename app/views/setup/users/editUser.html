@@ -1,0 +1,123 @@
+<div ng-controller="editUserController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div class="widget-body">
+            <div class="jarviswidget jarviswidget-sortable animate-show" data-widget-colorbutton="false"
+                 data-widget-editbutton="false" role="widget" style="" ng-show="user">
+              <header role="heading">
+                <div class="jarviswidget-ctrls" role="menu">
+                </div>
+                <span class="widget-icon"> </span>
+
+                <h2>User details</h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+              </header>
+
+              <div role="content">
+                <div class="jarviswidget-editbox">
+                </div>
+                <div class="widget-body">
+                  <form class="form-horizontal" novalidate name="userForm" xt-form>
+                    <fieldset>
+                      <div class="form-group"
+                           data-ng-class="{'has-error':userForm.name.$invalid && !userForm.name.$pristine}">
+                        <label class="col-md-2 control-label">Username</label>
+
+                        <div class="col-md-6">
+                          <input required name="name" class="form-control input-sm" type="text"
+                                 data-ng-model="user.name" xt-validate>
+                        </div>
+                      </div>
+                      <div class="form-group"
+                           data-ng-class="{'has-error':userForm.email.$invalid && !userForm.email.$pristine}">
+                        <label class="col-md-2 control-label">Email</label>
+
+                        <div class="col-md-6">
+                          <input required name="email" type="email" class="form-control input-sm" type="text"
+                                 data-ng-model="user.email" xt-validate>
+                        </div>
+                      </div>
+                      <div class="form-group"
+                           data-ng-class="{'has-error':userForm.firstName.$invalid && !userForm.firstName.$pristine}">
+                        <label class="col-md-2 control-label">First name</label>
+
+                        <div class="col-md-6">
+                          <input required name="firstName" class="form-control input-sm" type="text"
+                                 data-ng-model="user.firstName" xt-validate>
+                        </div>
+                      </div>
+                      <div class="form-group"
+                           data-ng-class="{'has-error':userForm.lastName.$invalid && !userForm.lastName.$pristine}">
+                        <label class="col-md-2 control-label">Last name</label>
+
+                        <div class="col-md-6">
+                          <input required name="lastName" class="form-control input-sm" type="text"
+                                 data-ng-model="user.lastName" xt-validate>
+                        </div>
+                      </div>
+                      <div class="form-group"
+                           data-ng-class="{'has-error':userForm.password.$invalid && !userForm.password.$pristine}">
+                        <label class="col-md-2 control-label">Password</label>
+
+                        <div class="col-md-6">
+                          <input type = "password" name="password" class="form-control input-sm" type="text"
+                                 data-ng-model="user.password" xt-validate>
+                        </div>
+                      </div>
+                      <div class="form-group"
+                           data-ng-class="{'error': userForm.user.distributionFormatter.$dirty && userForm.user.distributionFormatter.$invalid}">
+                        <label class="col-md-2 control-label">Roles</label>
+
+                        <div class="col-md-6" ng-if="user">
+                          <ui-select multiple name="definition" data-ng-model="user.roles" theme="bootstrap"
+                                     close-on-select="false">
+                            <ui-select-match placeholder="Choose">{{$item}}</ui-select-match>
+                            <ui-select-choices
+                              repeat="role in roles">
+                              <div data-ng-bind-html="role"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-2 control-label">Inactive</label>
+                        <div class="col-md-10">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" class="checkbox style-0" ng-model="user.inactive">
+                              <span></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+
+                    <div class="form-actions center">
+                      <button ng-click="save()" ng-disabled="!userForm.$valid"
+                              class="btn btn-small btn-primary">
+                        <i class="fa fa-save"></i>
+                        Save
+                        <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                      </button>
+
+                      <button ng-click="cancel()" class="btn btn-small btn-danger">
+                        Cancel
+                        <i class="icon-ban-circle icon-on-right bigger-110"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="select-wrapper">
+  <span class="dropdown">
+    <div class="btn-group" style="width: 100%">
+      <button class="btn btn-select-body">
+        <div class="select-text">{{selected.name}}</div>
+      </button>
+      <button class="btn dropdown-toggle btn-select-caret" >
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li ng-repeat="choice in choices">
+          <a ng-click="selectChoice(choice)" tabindex="{{$index}}" ng-class="isSelectedItem(choice)">{{choice.name}}</a>
+        </li>
+      </ul>
+    </div>
+  </span>
+</div>

@@ -1,0 +1,28 @@
+<div class="form-group"
+     data-ng-class="{'error': form.schemaDefinition.$dirty && form.schemaDefinition.$invalid}">
+  <label class="col-md-2 control-label">Rate Scheme Definition</label>
+
+  <div class="col-md-6">
+    <ui-select name="schemaDefinition" data-ng-model="instance.schemaDefinition" theme="selectize"
+               data-ng-required="true">
+      <ui-select-match placeholder="Choose">{{instance.schemaDefinition.name}}</ui-select-match>
+      <ui-select-choices
+        repeat="rateSchemaDefinition in rateSchemaDefinitions | propsFilter: {name: $select.search}">
+        <div data-ng-bind-html="rateSchemaDefinition.name | highlight: $select.search"></div>
+      </ui-select-choices>
+    </ui-select>
+  </div>
+</div>
+
+<!--<div class="control-group">-->
+  <!--<label class="control-label">Rate Schema Definition:</label>-->
+  <!--<div class="controls">-->
+    <!--<select data-ng-model="instance.schemaId"-->
+            <!--data-placeholder="Select"-->
+            <!--data-ui-select2-->
+            <!--ng-change="onFormatterChanged()">-->
+      <!--<option></option>-->
+      <!--<option ng-repeat="rateSchemaDefinition in rateSchemaDefinitions" value="{{rateSchemaDefinition.id}}">{{rateSchemaDefinition.name}}</option>-->
+    <!--</select>-->
+  <!--</div>-->
+<!--</div>-->

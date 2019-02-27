@@ -1,0 +1,81 @@
+<div class="modal">
+  <div id="blockerScreen" ng-hide="modal.types.length > 0 || modal.saving">
+    <div class="loading-image" alt="spinner"></div>
+  </div>
+  <div>
+    <div class="modal-header clearfix">
+      <h4 class="smaller lighter blue">Corporate Action </h4>
+    </div>
+    <div class="modal-body modal-body-no-overflow">
+      <form class="form-horizontal" name="form">
+        <div class="control-group">
+          <label class="control-label">Market</label>
+          <div class="controls">
+            <select id="market" type="hidden" ng-model="modal.marketId" data-ui-select2
+                    name="symbol"
+                    ng-change="modal.marketChanged()"
+                    placeholder="Select" required>
+              <option value=""></option>
+              <option ng-repeat="market in modal.markets" value="{{market.id}}">{{market.name}}</option>
+            </select>
+            </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Symbol</label>
+          <div class="controls">
+            <input id="symbol" type="hidden" ng-model="modal.selectedRateDefinition"
+                   data-ui-select2="modal.rateDefinitionSelect"
+                   name="symbol"
+                   ng-change="modal.changedRateDefinition()"
+                   required
+                   placeholder="Select" required>
+          </div>
+        </div>
+        <div class="control-group" ng-show="modal.selectedRateDefinition" ng-required="true">
+          <label class="control-label">Corporate Action Type</label>
+          <div class="controls">
+            <select id="type" type="hidden" ng-model="modal.corporateAction.corporateActionType" data-ui-select2
+                    name="symbol"
+                    placeholder="Select" required>
+              <option value=""></option>
+              <option ng-repeat="type in modal.types track by $index" value="{{type}}">{{type}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="control-group" ng-show="modal.corporateAction.corporateActionType">
+          <label class="control-label">Create</label>
+          <div class="controls">
+            <input type="text" class="input-small" ng-model="modal.corporateAction.adjBase"
+                          placeholder="Units" ng-required="true">
+          </div>
+        </div>
+        <div class="control-group" ng-show="modal.corporateAction.corporateActionType">
+          <label class="control-label">For Existing</label>
+          <div class="controls">
+            <input type="text" class="input-small" placeholder="Units"
+                   ng-model="corporateAction.adjFor"
+                   ng-required="true">
+            </div>
+        </div>
+        <div class="control-group" ng-show="modal.corporateAction.corporateActionType">
+          <label class="control-label">Effective Date</label>
+          <div class="controls">
+            <input id="start" type="text"
+                   class="form-control"
+                   datepicker-popup="{{modal.format}}"
+                   ng-model="modal.selectedDate"
+                   min="modal.currentDate"
+                   ng-required="true"
+                   close-text="Close"/>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button ng-click="modal.save()" ng-disabled="form.$invalid" class="btn btn-small btn-info">Save</button>
+      <button class="btn btn-small btn-danger" ng-click="modal.reject()">Cancel</button>
+    </div>
+  </div>
+</div>

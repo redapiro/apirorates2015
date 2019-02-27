@@ -1,0 +1,58 @@
+<div>
+  <div class="form-group"
+       data-ng-class="{'error': form.provider.$dirty && form.provider.$invalid}">
+    <label class="col-md-2 control-label">Data Provider</label>
+
+    <div class="col-md-6">
+      <ui-select name="provider" data-ng-model="instance.dataProvider" theme="selectize"
+                 data-ng-required="true">
+        <ui-select-match placeholder="Choose">{{instance.dataProvider.name}}</ui-select-match>
+        <ui-select-choices
+          repeat="provider in providers | propsFilter: {name: $select.search}">
+          <div data-ng-bind-html="provider.name | highlight: $select.search"></div>
+        </ui-select-choices>
+      </ui-select>
+    </div>
+  </div>
+
+  <div class="form-group"
+       data-ng-class="{'error': form.schemaDefinition.$dirty && form.schemaDefinition.$invalid}">
+    <label class="col-md-2 control-label">Rate Scheme Definition</label>
+
+    <div class="col-md-6">
+      <ui-select name="schemaDefinition" data-ng-model="instance.schemaDefinition" theme="selectize"
+                 data-ng-required="true">
+        <ui-select-match placeholder="Choose">{{instance.schemaDefinition.name}}</ui-select-match>
+        <ui-select-choices
+          repeat="rateSchemaDefinition in rateSchemaDefinitions | propsFilter: {name: $select.search}">
+          <div data-ng-bind-html="rateSchemaDefinition.name | highlight: $select.search"></div>
+        </ui-select-choices>
+      </ui-select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-2 control-label">Inline Only</label>
+    <div class="col-md-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" class="checkbox style-0" ng-model="instance.inlineOnly">
+          <span></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group" data-ng-class="{'has-error':form.priority.$invalid && !form.priority.$pristine}">
+    <label class="col-md-2 control-label">Aggregation priority</label>
+    <div class="col-md-6">
+      <input required name="priority" class="form-control input-sm" type="number"
+             data-ng-model="instance.aggregationPriority" xt-validate>
+    </div>
+  </div>
+
+  <div ng-show="instance">
+    <cron-field expression-source="instance.cronTriggers"></cron-field>
+  </div>
+
+</div>

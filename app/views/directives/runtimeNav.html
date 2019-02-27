@@ -1,0 +1,356 @@
+<aside id="left-panel">
+
+<!-- User info -->
+<div class="login-info">
+  <!--<a href="index.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-flask"></i> <span class="menu-item-parent">Runtime</span></a>-->
+</div>
+<!-- end user info -->
+
+<!-- NAVIGATION : This navigation is also responsive
+
+To make this navigation dynamic please make sure to link the node
+(the reference to the nav > ul) after page load. Or the navigation
+will not initialize.
+-->
+<navigation>
+  <!--<nav:item data-view="/dashboard" data-icon="fa fa-lg fa-fw fa-home" title="Rates" />-->
+  <nav:group data-icon="fa fa-lg fa-fw fa-bar-chart-o" title="Rates" >
+    <nav:item data-view="/runtime/sources/raw" title="Raw" />
+    <nav:item data-view="/runtime/sources/aggregated" title="Aggregated" />
+    <nav:item data-view="/runtime/sources/historical" title="Historical" />
+    <nav:item data-view="/runtime/sources/crossRate"  title="Risk Factors" />
+  </nav:group>
+  <!--<nav:item data-view="/inbox" data-icon="fa fa-lg fa-fw fa-inbox" title="Inbox"><span class="badge pull-right inbox-badge">14</span></nav:item>-->
+  <!--<nav:group data-icon="fa fa-lg fa-fw fa-bar-chart-o" title="Graphs">-->
+    <!--<nav:item data-view="/graphs/flot" title="Flot Chart" />-->
+    <!--<nav:item data-view="/graphs/morris" title="Morris Charts" />-->
+    <!--<nav:item data-view="/graphs/inline-charts" title="Inline Charts" />-->
+    <!--<nav:item data-view="/graphs/dygraphs" title="Dygraphs"><span class="badge pull-right inbox-badge bg-color-yellow">new</span></nav:item>-->
+  <!--</nav:group>-->
+  <!--<nav:group data-icon="fa fa-lg fa-fw fa-table" title="Tables">-->
+    <!--<nav:item data-view="/tables/table" title="Normal Tables" />-->
+    <!--<nav:item data-view="/tables/datatables" title="Data Tables"><span class="badge inbox-badge bg-color-greenLight">v1.10</span></nav:item>-->
+    <!--<nav:item data-view="/tables/jqgrid" title="Jquery Grid" />-->
+  <!--</nav:group>-->
+  <!--<nav:group data-icon="fa fa-lg fa-fw fa-pencil-square-o" title="Forms">-->
+    <!--<nav:item data-view="/forms/form-elements" title="Smart Form Elements" />-->
+    <!--<nav:item data-view="/forms/form-templates" title="Smart Form Layouts" />-->
+    <!--<nav:item data-view="/forms/validation" title="Smart Form Validation" />-->
+    <!--<nav:item data-view="/forms/bootstrap-forms" title="Bootstrap Form Elements" />-->
+    <!--<nav:item data-view="/forms/plugins" title="Form Plugins" />-->
+    <!--<nav:item data-view="/forms/wizard" title="Wizards" />-->
+    <!--<nav:item data-view="/forms/other-editors" title="Bootstrap Editors" />-->
+    <!--<nav:item data-view="/forms/dropzone" title="Dropzone" />-->
+    <!--<nav:item data-view="/forms/image-editor" title="Image Cropping"><span class="badge pull-right inbox-badge bg-color-yellow">new</span></nav:item>-->
+  <!--</nav:group>-->
+  <!--<nav:group data-icon="fa fa-lg fa-fw fa-desktop" title="UI Elements">-->
+    <!--<nav:item data-view="/ui/general-elements" title="General Elements" />-->
+    <!--<nav:item data-view="/ui/buttons" title="Buttons" />-->
+
+    <!--<nav:group title="Icons">-->
+      <!--<nav:item data-view="/ui/icons/fa" data-icon="fa fa-lg fa-fw fa-plane" title="Font Awesome" />-->
+      <!--<nav:item data-view="/ui/icons/glyph" data-icon="glyphicon glyphicon-plane" title="Glyph Icons" />-->
+      <!--<nav:item data-view="/ui/icons/flags" data-icon="fa fa-flag" title="Flags" />-->
+    <!--</nav:group>-->
+
+    <!--<nav:item data-view="/ui/grid" title="Grid" />-->
+    <!--<nav:item data-view="/ui/treeview" title="Tree View" />-->
+    <!--<nav:item data-view="/ui/nestable-list" title="Nestable Lists" />-->
+    <!--<nav:item data-view="/ui/jqui" title="JQuery UI" />-->
+    <!--<nav:item data-view="/ui/typography" title="Typography" />-->
+
+    <!--<nav:group title="Six Level Menu">-->
+      <!--<nav:group title="Item #2">-->
+        <!--<nav:group data-icon="fa fa-lg fa-fw fa-folder-open" title="Sub #2.1">-->
+          <!--<nav:item data-view="ui/icons/fa" title="Item #2.1.1" data-icon="fa fa-lg fa-fw fa-file-text" />-->
+          <!--<nav:group title="Expand" data-icon="fa fa-lg fa-fw fa-plus">-->
+            <!--<nav:item data-icon="fa fa-lg fa-fw fa-file-text" title="File" />-->
+            <!--<nav:item data-icon="fa fa-lg fa-fw fa-trash-o" title="Delete" />-->
+          <!--</nav:group>-->
+        <!--</nav:group>-->
+      <!--</nav:group>-->
+      <!--<nav:group title="Item #3">-->
+        <!--<nav:group data-icon="fa fa-lg fa-fw fa-folder-open" title="3rd Level">-->
+          <!--<nav:item data-icon="fa fa-lg fa-fw fa-file-text" title="File" />-->
+          <!--<nav:item data-icon="fa fa-lg fa-fw fa-file-text" title="File" />-->
+        <!--</nav:group>-->
+      <!--</nav:group>-->
+    <!--</nav:group>-->
+  <!--</nav:group>-->
+  <!--<nav:item data-view="/calendar" data-icon="fa fa-lg fa-fw fa-calendar" data-icon-caption="3" title="Calendar" />-->
+  <!--<nav:item data-view="/widgets" data-icon="fa fa-lg fa-fw fa-list-alt" title="Widgets" />-->
+  <!--<nav:item data-view="/gallery" data-icon="fa fa-lg fa-fw fa-picture-o" title="Gallery" />-->
+  <!--<nav:item data-view="/gmap-xml" data-icon="fa fa-lg fa-fw fa-map-marker" title="GMap Skins"><span class="badge bg-color-greenLight pull-right inbox-badge">9</span></nav:item>-->
+  <!--<nav:group data-icon="fa fa-lg fa-fw fa-windows" title="Miscellaneous">-->
+    <!--<nav:group data-icon="fa fa-lg fa-fw fa-file" title="Other Pages">-->
+      <!--<nav:item data-view="/misc/other/forum" title="Forum Layout" />-->
+      <!--<nav:item data-view="/misc/other/profile" title="Profile" />-->
+      <!--<nav:item data-view="/misc/other/timeline" title="Timeline" />-->
+    <!--</nav:group>-->
+    <!--<nav:item data-view="/misc/pricing-table" title="Pricing Tables" />-->
+    <!--<nav:item data-view="/misc/invoice" title="Invoice" />-->
+    <!--<nav:item href="login.html" target="_top" title="Login" />-->
+    <!--<nav:item href="register.html" target="_top" title="Register" />-->
+    <!--<nav:item href="lock.html" target="_top" title="Locked Screen" />-->
+    <!--<nav:item data-view="/misc/error404" title="Error 404" />-->
+    <!--<nav:item data-view="/misc/error500" title="Error 500" />-->
+    <!--<nav:item data-view="/misc/blank_" title="Blank Page" />-->
+    <!--<nav:item data-view="/misc/email-template" title="Email Template" />-->
+    <!--<nav:item data-view="/misc/search" title="Search Page" />-->
+    <!--<nav:item data-view="/misc/ckeditor" title="CK Editor" />-->
+  <!--</nav:group>-->
+  <!--<nav:group data-icon="fa fa-lg fa-fw fa-cube txt-color-blue" title="SmartAdmin Intel">-->
+    <!--<nav:item data-view="/intel/difver" data-icon="fa fa-lg fa-fw fa-stack-overflow" title="Different Versions" />-->
+    <!--<nav:item data-view="/intel/applayout" data-icon="fa fa-cube" title="App Settings" />-->
+    <!--<nav:item href="http://bootstraphunter.com/smartadmin/BUGTRACK/track_/documentation/index" target="_blank" data-icon="fa fa-lg fa-fw fa-book" title="Documentation" />-->
+    <!--<nav:item href="http://bootstraphunter.com/smartadmin/BUGTRACK/track_/" target="_blank" data-icon="fa fa-lg fa-fw fa-bug" title="Bug Tracker" />-->
+  <!--</nav:group>-->
+</navigation>
+<nav>
+<!-- NOTE: Notice the gaps after each icon usage <i></i>..
+Please note that these links work a bit different than
+traditional hre="" links. See documentation for details.
+-->
+
+<ul style="">
+<!--<li>-->
+
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge">14</span></a>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span><b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--<a href="flot.html">Flot Chart</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="morris.html">Morris Charts</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="inline-charts.html">Inline Charts</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a>-->
+    <!--<i class="fa fa-lg fa-fw fa-table"></i>-->
+      <!--<span class="menu-item-parent">Rates</span>-->
+      <!--<b class="collapse-sign"><em class="fa fa-collapse-o"></em>-->
+      <!--</b>-->
+  <!--</a>-->
+  <!--<ul style="display: block;">-->
+    <!--<li ng-class="{'active': isRaw()}">-->
+      <!--<a href="#/runtime/sources/raw">Raw</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{'active': isAggregated()}">-->
+      <!--<a href="#/runtime/sources/aggregated">Aggregated</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{'active': isHistorical()}">-->
+      <!--<a href="#/runtime/sources/historical">Historical</a>-->
+    <!--</li>-->
+    <!--<li ng-class="{'active': isCrossRate()}">-->
+      <!--<a href="#/runtime/sources/crossRate">Risk Factors</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a>-->
+    <!--<i class="fa fa-lg fa-fw fa-check-square-o"></i>-->
+    <!--<span class="menu-item-parent">Audit</span>-->
+    <!--<b class="collapse-sign"><em class="fa fa-collapse-o"></em>-->
+    <!--</b>-->
+  <!--</a>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Forms</span><b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--<a href="form-elements.html">Smart Form Elements</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="form-templates.html">Smart Form Layouts</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="validation.html">Smart Form Validation</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="bootstrap-forms.html">Bootstrap Form Elements</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="plugins.html">Form Plugins</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="wizard.html">Wizards</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="other-editors.html">Bootstrap Editors</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="dropzone.html">Dropzone <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">UI Elements</span><b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--<a href="general-elements.html">General Elements</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="buttons.html">Buttons</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="#">Icons<b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+      <!--<ul>-->
+        <!--<li>-->
+          <!--<a href="fa.html"><i class="fa fa-plane"></i> Font Awesome</a>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<a href="glyph.html"><i class="glyphicon glyphicon-plane"></i> Glyph Icons </a>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="grid.html">Grid</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="treeview.html">Tree View</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="nestable-list.html">Nestable Lists</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="jqui.html">JQuery UI</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="#"><i class="fa fa-lg fa-fw fa-folder-open"></i> <span class="menu-item-parent">6 Level Navigation</span><b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--<a href="#"><i class="fa fa-fw fa-folder-open"></i> 2nd Level<b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+      <!--<ul>-->
+        <!--<li>-->
+          <!--<a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level <b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+          <!--<ul>-->
+            <!--<li>-->
+              <!--<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<a href="#"><i class="fa fa-fw fa-folder-open"></i> 4th Level<b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+              <!--<ul>-->
+                <!--<li>-->
+                  <!--<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                  <!--<a href="#"><i class="fa fa-fw fa-folder-open"></i> 5th Level<b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+                  <!--<ul>-->
+                    <!--<li>-->
+                      <!--<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                      <!--<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>-->
+                    <!--</li>-->
+                  <!--</ul>-->
+                <!--</li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="#"><i class="fa fa-fw fa-folder-open"></i> Folder<b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+
+      <!--<ul>-->
+        <!--<li>-->
+          <!--<a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level <b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+          <!--<ul>-->
+            <!--<li>-->
+              <!--<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</li>-->
+      <!--</ul>-->
+
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="calendar.html"><i class="fa fa-lg fa-fw fa-calendar"><em>3</em></i> <span class="menu-item-parent">Calendar</span></a>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="gallery.html"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Gallery</span></a>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="gmap-xml.html"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">Google Map Skins</span><span class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span><b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--<a href="typography.html">Typography</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="pricing-table.html">Pricing Tables</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="invoice.html">Invoice</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="login.html" target="_top">Login</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="register.html" target="_top">Register</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="lock.html" target="_top">Locked Screen</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="error404.html">Error 404</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="error500.html">Error 500</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="blank_.html">Blank Page</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="email-template.html">Email Template</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="search.html">Search Page</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="ckeditor.html">CK Editor</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+<!--<li>-->
+  <!--<a href="#"><i class="fa fa-lg fa-fw fa-file"></i> <span class="menu-item-parent">Other Pages</span><b class="collapse-sign"><em class="fa fa-expand-o"></em></b></a>-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--<a href="forum.html">Forum Layout</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="profile.html">Profile</a>-->
+    <!--</li>-->
+    <!--<li>-->
+      <!--<a href="timeline.html">Timeline</a>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+</ul>
+</nav>
+<span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+
+</aside>

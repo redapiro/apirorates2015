@@ -1,0 +1,51 @@
+<section id="widget-grid" data-widget-grid>
+  <div class="widget-body">
+
+    <ul id="myTab1" class="nav nav-tabs bordered">
+      <li ng-class="{active: isInstanceMode}" ng-click="enableInstances()">
+        <a data-toggle="tab" > <span class="hidden-mobile hidden-tablet">Instances</span></a>
+      </li>
+      <li ng-class="{active: isDefinitionMode}" ng-click="enableDefinitions()">
+        <a data-toggle="tab" > <span class="hidden-mobile hidden-tablet">Definitions</span></a>
+    </ul>
+
+    <div id="myTabContent1" class="tab-content tabs-grid-padding">
+      <div class="tab-pane fade active in" id="s1">
+        <div ng-class="{'no-left-padding': !editMode}">
+          <!--PAGE CONTENT BEGINS-->
+          <div simple-grid
+               grid-title="gridTitle"
+               columns="columns"
+               datasource-url="datasourceUrl"
+               action-columns="extraColumnsToAdd"
+               refresh-trigger="refreshView"
+               toolbar-action="gridAction">
+          </div>
+          <!--<div class="space-6"></div>-->
+          <!--PAGE CONTENT ENDS-->
+          <!--/.row-fluid-->
+        </div>
+      </div>
+      <div class="tab-pane fade" id="s2">
+
+        <!--<div ng-show="editMode">-->
+          <!--PAGE CONTENT BEGINS-->
+          <!--<scriptable instance="scriptEntity"-->
+                      <!--validation-failure="serverValidationError"-->
+                      <!--scriptable-entity-type="scriptableEntity"-->
+                      <!--instance-form="instanceForm"-->
+                      <!--definition-form="definitionForm"-->
+                      <!--mode="mode"-->
+                      <!--refresh-reference-data="refreshReferenceData"-->
+                      <!--on-save="save()"-->
+                      <!--on-cancel="doCancel()"></scriptable>-->
+          <!--<div class="space-6"></div>-->
+          <!--PAGE CONTENT ENDS-->
+        <!--</div>-->
+      </div>
+    </div>
+
+    <!--/.span-->
+  </div>
+  <!--/.row-fluid-->
+</section>

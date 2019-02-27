@@ -1,0 +1,29 @@
+<div ng-controller="distributionDefsController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div class="widget-body">
+          <div id="content">
+            <div ng-show="!editMode">
+              <!--PAGE CONTENT BEGINS-->
+              <div class="row-fluid">
+                <div class="span12">
+                  <div simple-grid
+                       grid-title="'Distributions'"
+                       columns="columns"
+                       datasource-url="datasourceUrl"
+                       action-columns="extraColumnsToAdd"
+                       refresh-trigger="refreshView"
+                       toolbar-action="gridAction">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+    <!--/.page-content-->
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div ng-controller="crossRateHistoricalController" class="animated ">
+  <span navbar></span>
+  <span runtime-nav></span>
+
+  <div id="main" role="main" class="animated fadeIn">
+    <div id="ribbon">
+      <!-- breadcrumb -->
+      <ol class="breadcrumb">
+        <li>
+          Rates
+        </li>
+        <li>
+          Risk Factors
+        </li>
+      </ol>
+
+    </div>
+
+    <div id="content" >
+      <div class="row">
+        <section id="widget-grid" >
+          <div class="row">
+            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div cross-rate-historical-grid
+                   source-url="historicalRateSearchPath"
+                   change-count="changeCount"
+                   table-type="tableType"
+                   display-date-criteria = "displayDateCriteria"
+                   editable="false">
+              </div>
+              <!--/.span-->
+            </article>
+          </div>
+          <!--/.row-fluid-->
+        </section>
+      </div>
+      <!--/.page-content-->
+    </div>
+  </div>
+</div>

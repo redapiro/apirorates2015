@@ -1,0 +1,68 @@
+<div class="jarviswidget jarviswidget-sortable" id="wid-id-2" data-widget-colorbutton="false" data-widget-editbutton="false" role="widget" style="position: relative; opacity: 1;">
+
+  <header role="heading">
+    <h2>Ad-hoc imports</h2>
+    <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span></header>
+
+  <!-- widget div-->
+  <div role="content">
+
+    <!-- widget edit box -->
+    <div class="jarviswidget-editbox">
+      <!-- This area used as dropdown edit box -->
+
+    </div>
+    <!-- end widget edit box -->
+
+    <!-- widget content -->
+    <div class="widget-body">
+
+      <form class="form-horizontal">
+
+        <fieldset>
+          <legend></legend>
+          <div class="form-group">
+            <label class="col-md-2 control-label">Feed to import</label>
+            <div class="col-md-10">
+              <ui-select ng-model="modal.feed" theme="selectize" ng-required="true" >
+                <ui-select-match placeholder="Select a feed">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="option in modal.feedInstances | highlight: $select.search">
+                  <div ng-bind-html="option.name | highlight: $select.search"></div>
+                </ui-select-choices>
+              </ui-select>
+              <!--<p class="note"><strong>Note:</strong> .</p>-->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-2 control-label">Inline import</label>
+
+              <label>
+                <input type="checkbox" class="checkbox style-0" class="checkbox style-0" ng-model="modal.overwrite" ng-disabled="modal.feed.inlineOnly" >
+                <span></span>
+              </label>
+            <p class="note"><strong>Note:</strong> Enabling this will allow text representing the feed data to be pasted.</p>
+          </div>
+
+          <div class="form-group" class="animate-show" ng-show="modal.overwrite">
+            <label class="col-md-2 control-label">Payload</label>
+            <div class="col-md-10">
+              <textarea class="form-control" placeholder="Paste in rates data to import" ng-model="modal.payload" rows="10"></textarea>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+
+      <div class="form-actions">
+        <button ng-click="importFeed()" class="btn btn-success" ng-disabled="!modal.feed">Import</button>
+        <button ng-click="cancel()" class="btn btn-danger">Cancel</button>
+      </div>
+
+    </div>
+    <!-- end widget content -->
+
+  </div>
+  <!-- end widget div -->
+
+</div>

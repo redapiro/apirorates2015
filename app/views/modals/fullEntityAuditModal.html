@@ -1,0 +1,97 @@
+<div class="modal full-screen">
+  <div id="blockerScreen" ng-show="!modal.ready">
+    <div class="loading-image" alt="spinner"></div>
+  </div>
+  <div ng-show="modal.ready">
+    <div class="modal-header clearfix">
+      <div class="pull-right">
+        <button type="button"
+                class="btn btn-primary btn-mini ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                role="button" aria-disabled="false"><span class="ui-button-text" ng-click="modal.close()">Close</span>
+        </button>
+      </div>
+      <h3 class="smaller lighter blue">Audit History</h3>
+    </div>
+    <div class="modal-body-no-max-height">
+      <!--<form class="form-horizontal">-->
+      <!--<div class="row-fluid">-->
+      <!--<div class="span6">-->
+      <!--<div class="control-group">-->
+      <!--<label class="control-label" for="form-field-1">Entity Id</label>-->
+
+      <!--<div class="controls">-->
+      <!--<input type="text" id="form-field-1" ng-model="modal.auditEntity.reference">-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="control-group">-->
+      <!--<label class="control-label" for="form-field-2">Entity Type</label>-->
+
+      <!--<div class="controls">-->
+      <!--<input type="text" id="form-field-2" ng-model="modal.auditEntity.entityType">-->
+      <!--&lt;!&ndash;<span class="help-inline">Inline help text</span>&ndash;&gt;-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="control-group">-->
+      <!--<label class="control-label" for="form-input-readonly">Task Type</label>-->
+
+      <!--<div class="controls">-->
+      <!--<input type="text" id="form-input-readonly" ng-model="modal.auditEntity.taskTypeName">-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--</div>-->
+      <!--<div class="span6">-->
+
+      <!--<div class="control-group">-->
+      <!--<label class="control-label" for="form-field-4">Task Id</label>-->
+
+      <!--<div class="controls">-->
+      <!--<input type="text" id="form-field-4" ng-model="modal.auditEntity.taskUuuid">-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="control-group">-->
+      <!--<label class="control-label" for="form-field-5">Task Time</label>-->
+
+      <!--<div class="controls">-->
+      <!--<input type="text" id="form-field-5" ng-model="modal.auditEntity.date">-->
+      <!--&lt;!&ndash;<span class="help-inline">Inline help text</span>&ndash;&gt;-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="control-group">-->
+      <!--<label class="control-label" for="form-field-6">Principal</label>-->
+
+      <!--<div class="controls">-->
+      <!--<input type="text" id="form-field-6" ng-model="modal.auditEntity.principalName">-->
+      <!--&lt;!&ndash;<span class="help-inline">Inline help text</span>&ndash;&gt;-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="hr"></div>-->
+      <!--</form>-->
+      <!-- Start of Rates table template -->
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="widget-box ">
+            <div class="widget-header">
+              <h4 class="lighter smaller">
+                Diff History
+              </h4>
+            </div>
+
+            <audit-detail audit-history="modal.fullEntityData"></audit-detail>
+
+          </div>
+        </div>
+      </div>
+      <!--<div class="modal-footer">-->
+      <!--<button ng-click="modal.save()" class="btn  btn-success" ng-disabled="!modal.enableSave">Save</button>-->
+      <!--<button class="btn btn-danger" ng-click="modal.closeDialog()">Cancel</button>-->
+      <!--</div>-->
+    </div>
+  </div>
+</div>

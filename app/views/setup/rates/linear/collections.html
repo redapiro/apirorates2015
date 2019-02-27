@@ -1,0 +1,10 @@
+<div ng-controller="rateCollectionsController" class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <div id="content">
+    <manage-scriptable mode="mode" scriptable-entity="scriptableEntity" grid-title="'Collections'"
+                       link-url="/setup/rates/linear/collections/edit"
+                       instance-form="'linear-collections-instance-form'"></manage-scriptable>
+    </div>
+  </div>
+</div>

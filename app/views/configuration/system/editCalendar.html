@@ -1,0 +1,100 @@
+<div ng-controller="editCalendarController" class="animated fadeIn" ng-show="instance">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <section id="widget-grid" data-widget-grid>
+        <div id="content">
+          <div>
+            <div class="jarviswidget jarviswidget-sortable animate-show" data-widget-colorbutton="false"
+                 data-widget-editbutton="false" role="widget" style="">
+              <header role="heading">
+                <div class="jarviswidget-ctrls" role="menu">
+                </div>
+                <span class="widget-icon">  </span>
+
+                <h2>Business Calendar</h2>
+
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+              </header>
+
+              <div role="content">
+                <div class="jarviswidget-editbox">
+                </div>
+                <div class="widget-body">
+
+                  <form class="form-horizontal" novalidate name="calendarForm" xt-form>
+                    <fieldset>
+                      <div class="form-group"
+                           data-ng-class="{'has-error': calendarForm.name.$dirty && calendarForm.name.$invalid}">
+                        <label class="col-md-2 control-label">Name</label>
+
+                        <div class="col-md-6">
+                          <input required name="name" class="form-control input-sm" type="text" autocomplete="off"
+                                 data-ng-model="instance.name" xt-validate>
+                        </div>
+                      </div>
+
+                      <div class="form-group"
+                           data-ng-class="{'has-error': calendarForm.description.$dirty && calendarForm.description.$invalid}">
+                        <label class="col-md-2 control-label">Description</label>
+
+                        <div class="col-md-6">
+                          <input required name="description" class="form-control input-sm" type="text" autocomplete="off"
+                                 data-ng-model="instance.description" xt-validate>
+                        </div>
+                      </div>
+
+                      <div class="form-group" ng-if="instance"
+                           data-ng-class="{'error': calendarForm.instance.days.$dirty && calendarForm.instance.days.$invalid}">
+                        <label class="col-md-2 control-label">Normal days</label>
+
+                        <div class="col-md-6">
+                          <ui-select multiple required name="days" data-ng-model="instance.normalDays"
+                                     close-on-select="false">
+                            <ui-select-match placeholder="Choose">{{$item}}</ui-select-match>
+                            <ui-select-choices
+                              repeat="day in dayOfWeek">
+                              <div data-ng-bind-html="day"></div>
+                            </ui-select-choices>
+                          </ui-select>
+                        </div>
+                      </div>
+
+                      <h5>Holiday Entries</h5>
+
+                      <div business-calendar-grid
+                           paginated="false"
+                           refresh = "refresh"
+                           pixel-height="300"
+                           items-for-edit="itemsForEdit">
+                      </div>
+
+
+                      <div errors-display class="alert alert-danger animated fadeIn"
+                           error-messages="errorMessages"></div>
+                      <div class="form-actions center">
+                        <button ng-click="save()" ng-disabled="!calendarForm.$valid"
+                                class="btn btn-small btn-primary">
+                          <i class="fa fa-save"></i>
+                          Save
+                          <i class="icon-arrow-right icon-on-right bigger-110"></i>
+                        </button>
+                        <button ng-click="cancel()" class="btn btn-small btn-danger">
+                          Cancel
+                          <i class="icon-ban-circle icon-on-right bigger-110"></i>
+                        </button>
+
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--FORM ENDS-->
+          </div>
+        </div>
+        <!--/.page-content-->
+      </section>
+    </article>
+  </div>
+</div>

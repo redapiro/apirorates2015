@@ -1,0 +1,10 @@
+<div ng-controller="crossRateDistProcServiceController"  class="animated fadeIn">
+  <div id="main" role="main">
+    <div id="ribbon" ng-show = "$root.showView" data-ng-include="'views/includes/ribbon.html'" data-ribbon=""></div>
+    <div id="content">
+      <manage-scriptable mode="mode" scriptable-entity="scriptableEntity"
+                         link-url="/setup/rates/riskFactors/distributionProcService/edit"
+                         grid-title="'Distribution Processor Services'"></manage-scriptable>
+    </div>
+  </div>
+</div>
